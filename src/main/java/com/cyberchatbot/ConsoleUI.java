@@ -51,8 +51,8 @@ public class ConsoleUI {
         System.out.println(GREEN + "===================================================" + RESET);
     }
 
-    public static void printPrompt(String message) {
-        System.out.println(BLUE + "[You] > " + RESET + message);
+    public static void printPrompt() {
+        System.out.println(BLUE + "[You] > " + RESET);
     }
 
     public static void printBotResponse(String message) {
