@@ -52,7 +52,7 @@ public class ConsoleUI {
     }
 
     public static void printPrompt() {
-        System.out.println(BLUE + "[You] > " + RESET);
+        System.out.print(BLUE + "[You] > " + RESET);
     }
 
     public static void printBotResponse(String message) {
@@ -60,6 +60,6 @@ public class ConsoleUI {
     }
 
     public static void printError(String message) {
-        System.out.println(RED + "[!]" + message + RESET);
+        System.out.print(RED + "[!]" + message + RESET);
     }
 }
