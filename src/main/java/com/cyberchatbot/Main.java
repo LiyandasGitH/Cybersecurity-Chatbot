@@ -4,19 +4,51 @@ package com.cyberchatbot;
 
 import java.util.Scanner;
 
-import static com.cyberchatbot.ConsoleUI.printPrompt;
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ConsoleUI.printBanner();
-        // future implementation for Windows terminal display
+
+        String userName = "";
+        while (userName.isEmpty()) {
+            ConsoleUI.printBotResponse("Hello! Before we begin, what is your name?");
+            ConsoleUI.printPrompt();
+            userName = scanner.nextLine().trim();
+
+            if (userName.isEmpty()) {
+                ConsoleUI.printBotResponse("Name cannot be empty. Please enter a valid name.");
+                System.out.println();
+            }
+        }
+        ConsoleUI.printBotResponse("Hi " + userName + "! Ask me about phishing, password and malware attacks.");
+
+//         future implementation for Windows terminal display
 //        AnsiConsole.systemInstall();
-        VoiceGreeter.greet();
+//        VoiceGreeter.greet();
 
-        Chatbot bot = new Chatbot();
-        bot.start();
+//        Chatbot bot = new Chatbot();
+//        bot.start();
+//
+        boolean isActive = true;
+        while (isActive) {
+            ConsoleUI.printPrompt();
+            String userInput = scanner.nextLine().trim();
 
-//        String user = prompt(scanner);
+            if (userInput.equalsIgnoreCase("exit") || (userInput.equalsIgnoreCase("quit"))) {
+                ConsoleUI.printBotResponse("Goodbye " + userName + "! Stay safe online!");
+                break;
+            }
+
+            // placeholder for bot response
+            ResponseEngine.getResponse();
+//            System.out.println(userInput);
+
+//            else {
+//                isActive = false;
+//            }
+
+        }
+
+        scanner.close();
     }
 }
