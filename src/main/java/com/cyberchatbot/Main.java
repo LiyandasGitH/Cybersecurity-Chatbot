@@ -24,7 +24,23 @@ public class Main {
 
 //         future implementation for Windows terminal display
 //        AnsiConsole.systemInstall();
-//        VoiceGreeter.greet();
+
+        System.setProperty(
+                "freetts.voices",
+                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory"
+        );
+        VoiceGreeter.greet();
+        VoiceGreeter voice = new VoiceGreeter("kevin16");
+
+
+        String[] cyberTalk = new String[]{
+
+                "Ask me about passwords",
+                "Ask me about phishing",
+                "Ask me about malware attacks"
+         };
+
+        voice.sayMore(cyberTalk);
 
 //        Chatbot bot = new Chatbot();
 //        bot.start();
