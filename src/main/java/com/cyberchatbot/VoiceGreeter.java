@@ -7,26 +7,29 @@ import com.sun.speech.freetts.VoiceManager;
 public class VoiceGreeter {
 
     private String name;
-
-    private Voice voice;
+    static {
+        System.setProperty(
+                "freetts.voices",
+                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory"
+        );
+    }
+    private final Voice voice;
 
     public VoiceGreeter(String name) {
         this.name = name;
 
-
-
-        this.voice = VoiceManager.getInstance().getVoice(this.name);
+        voice = VoiceManager.getInstance().getVoice(name);
 
         if (this.voice == null) {
             throw new IllegalStateException(
                     "Voice '" + this.name + "' could not be found."
             );
         }
-        this.voice.allocate();
+        voice.allocate();
     }
 
     public void say(String something) {
-        this.voice.speak(something);
+        voice.speak(something);
     }
 
     public void sayMore(String[] somethingMore) {
@@ -36,6 +39,23 @@ public class VoiceGreeter {
         }
     }
     public static void greet() {
+        try {
+            VoiceGreeter voice = new VoiceGreeter("kevin16");
+
+            String[] cyberTalk = new String[]{
+
+                    "Ask me about passwords",
+                    "Ask me about phishing",
+                    "Ask me about malware attacks"
+            };
+
+//        for (String option : cyberTalk) {
+//            System.out.println(option);
+//        }
+            voice.sayMore(cyberTalk);
+        } catch (Exception e) {
+            System.err.println("[System Warning] Audio subsystem unavailable: " + e.getMessage());
+        }
     }
-    
+
 }

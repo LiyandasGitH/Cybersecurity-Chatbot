@@ -8,6 +8,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ConsoleUI.printBanner();
+        // fix this so that "Welcome to CyberBot" is the first audio sound heard, reads below the banner
+        VoiceGreeter.greet();
 
         String userName = "";
         while (userName.isEmpty()) {
@@ -25,22 +27,6 @@ public class Main {
 //         future implementation for Windows terminal display
 //        AnsiConsole.systemInstall();
 
-        System.setProperty(
-                "freetts.voices",
-                "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory"
-        );
-        VoiceGreeter.greet();
-        VoiceGreeter voice = new VoiceGreeter("kevin16");
-
-
-        String[] cyberTalk = new String[]{
-
-                "Ask me about passwords",
-                "Ask me about phishing",
-                "Ask me about malware attacks"
-         };
-
-        voice.sayMore(cyberTalk);
 
 //        Chatbot bot = new Chatbot();
 //        bot.start();
@@ -51,12 +37,13 @@ public class Main {
             String userInput = scanner.nextLine().trim();
 
             if (userInput.equalsIgnoreCase("exit") || (userInput.equalsIgnoreCase("quit"))) {
+                System.out.println();
                 ConsoleUI.printBotResponse("Goodbye " + userName + "! Stay safe online!");
                 break;
             }
 
             // placeholder for bot response
-            ResponseEngine.getResponse();
+//            ResponseEngine.getResponse(userInput);
 //            System.out.println(userInput);
 
 //            else {
