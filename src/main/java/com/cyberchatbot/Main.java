@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ConsoleUI.printBanner();
+
         // fix this so that "Welcome to CyberBot" is the first audio sound heard, reads below the banner
         VoiceGreeter.greet();
 

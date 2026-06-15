@@ -6,7 +6,7 @@ import com.sun.speech.freetts.VoiceManager;
 
 public class VoiceGreeter {
 
-    private String name;
+    private final String name;
     static {
         System.setProperty(
                 "freetts.voices",
@@ -43,10 +43,10 @@ public class VoiceGreeter {
             VoiceGreeter voice = new VoiceGreeter("kevin16");
 
             String[] cyberTalk = new String[]{
-
-                    "Ask me about passwords",
-                    "Ask me about phishing",
-                    "Ask me about malware attacks"
+                    "Welcome to CyberBot - your cybersecurity guide!"
+//                    "Ask me about passwords",
+//                    "Ask me about phishing",
+//                    "Ask me about malware attacks"
             };
 
 //        for (String option : cyberTalk) {
