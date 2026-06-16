@@ -4,36 +4,53 @@ package com.cyberchatbot;
 
 import java.util.Scanner;
 
-import static com.cyberchatbot.ConsoleUI.printPrompt;
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ConsoleUI.printBanner();
-        ConsoleUI.printBotResponse("Hi! Ask me anything about phishing, passwords or malware attacks.");
+        // fix this so that "Welcome to CyberBot" is the first audio sound heard, reads below the banner
+        VoiceGreeter.greet();
 
-        boolean isActive = true;
-        while(isActive) {
+        String userName = "";
+        while (userName.isEmpty()) {
+            ConsoleUI.printBotResponse("Hello! Before we begin, what is your name?");
             ConsoleUI.printPrompt();
-            String user = scanner.nextLine().trim();
+            userName = scanner.nextLine().trim();
 
-            // check if user wants to exit and stop cleanly
-            if (user.equalsIgnoreCase("exit") || user.equalsIgnoreCase("quit")) {
+            if (userName.isEmpty()) {
+                ConsoleUI.printBotResponse("Name cannot be empty. Please enter a valid name.");
                 System.out.println();
-                ConsoleUI.printBotResponse("Goodbye! Stay safe online.");
-                break;
             }
-            // placeholder return user input
-            System.out.println(user);
+        }
+        ConsoleUI.printBotResponse("Hi " + userName + "! Ask me about phishing, password and malware attacks.");
 
-            // future implementation for Windows terminal display
+//         future implementation for Windows terminal display
 //        AnsiConsole.systemInstall();
-//        VoiceGreeter.greet();
+
 
 //        Chatbot bot = new Chatbot();
 //        bot.start();
+//
+        boolean isActive = true;
+        while (isActive) {
+            ConsoleUI.printPrompt();
+            String userInput = scanner.nextLine().trim();
+
+            if (userInput.equalsIgnoreCase("exit") || (userInput.equalsIgnoreCase("quit"))) {
+                System.out.println();
+                ConsoleUI.printBotResponse("Goodbye " + userName + "! Stay safe online!");
+                break;
+            }
+
+            // placeholder for bot response
+//            ResponseEngine.getResponse(userInput);
+//            System.out.println(userInput);
+
+//            else {
+//                isActive = false;
+//            }
+
         }
         scanner.close();
-
     }
 }
