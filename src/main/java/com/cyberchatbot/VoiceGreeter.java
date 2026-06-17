@@ -5,7 +5,6 @@ import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
 public class VoiceGreeter {
-
     private final String name;
     static {
         System.setProperty(
@@ -20,12 +19,16 @@ public class VoiceGreeter {
 
         voice = VoiceManager.getInstance().getVoice(name);
 
-        if (this.voice == null) {
+        if (voice == null) {
             throw new IllegalStateException(
                     "Voice '" + this.name + "' could not be found."
             );
         }
         voice.allocate();
+        voice.setRate(150);
+        voice.setPitch(100);
+        voice.setVolume(3.0f);
+
     }
 
     public void say(String something) {
@@ -39,22 +42,54 @@ public class VoiceGreeter {
         }
     }
     public static void greet() {
-        try {
-            VoiceGreeter voice = new VoiceGreeter("kevin16");
 
-            String[] cyberTalk = new String[]{
-                    "Welcome to CyberBot - your cybersecurity guide!"
+        // Threading
+        Thread speechThread = new Thread(() -> {
+            try {
+                VoiceGreeter voice = new VoiceGreeter("kevin16");
+
+                String[] cyberTalk = new String[]{
+                        "Welcome to CyberBot - your cybersecurity guide!"
+//                    "Hello! Before we begin, what is your name?"
 //                    "Ask me about passwords",
 //                    "Ask me about phishing",
 //                    "Ask me about malware attacks"
-            };
+                };
 
 //        for (String option : cyberTalk) {
 //            System.out.println(option);
 //        }
-            voice.sayMore(cyberTalk);
-        } catch (Exception e) {
-            System.err.println("[System Warning] Audio subsystem unavailable: " + e.getMessage());
+                voice.sayMore(cyberTalk);
+            } catch (Exception e) {
+                ConsoleUI.printError("[System Warning] Audio subsystem unavailable: " + e.getMessage() + "\n");
+            }
+        });
+        speechThread.start();
+
+        // PAUSE before we're introduced to the program
+//        try {
+//            VoiceGreeter voice = new VoiceGreeter("kevin16");
+//
+//            String[] cyberTalk = new String[]{
+//                    "Welcome to CyberBot. Your cybersecurity guide!"
+////                    "Hello! Before we begin, what is your name?"
+////                    "Ask me about passwords",
+////                    "Ask me about phishing",
+////                    "Ask me about malware attacks"
+//            };
+//
+////        for (String option : cyberTalk) {
+////            System.out.println(option);
+////        }
+//            voice.sayMore(cyberTalk);
+//        } catch (Exception e) {
+//            System.err.println(ConsoleUI.YELLOW + "[System Warning] : Audio subsystem unavailable: " + e.getMessage() + ConsoleUI.RESET);
+//        }
+    }
+
+    public void close() {
+        if (voice != null) {
+            voice.deallocate();
         }
     }
 
