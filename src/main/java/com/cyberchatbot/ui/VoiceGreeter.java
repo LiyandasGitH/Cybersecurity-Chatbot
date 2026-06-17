@@ -1,4 +1,4 @@
-package com.cyberchatbot;
+package com.cyberchatbot.ui;
 
 
 import com.sun.speech.freetts.Voice;

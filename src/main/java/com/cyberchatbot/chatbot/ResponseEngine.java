@@ -1,4 +1,7 @@
-package com.cyberchatbot;
+package com.cyberchatbot.chatbot;
+
+import com.cyberchatbot.ui.ConsoleUI;
+import com.cyberchatbot.ui.VoiceGreeter;
 
 public class ResponseEngine {
 

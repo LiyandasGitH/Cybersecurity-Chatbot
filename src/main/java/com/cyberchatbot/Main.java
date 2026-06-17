@@ -1,8 +1,9 @@
 package com.cyberchatbot;
 
 //import org.fusesource.jansi.AnsiConsole;
-import com.cyberchatbot.Chatbot;
-import com.cyberchatbot.VoiceGreeter;
+
+import com.cyberchatbot.chatbot.*;
+import com.cyberchatbot.ui.*;
 
 import java.util.Scanner;
 

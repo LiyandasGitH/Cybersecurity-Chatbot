@@ -1,4 +1,4 @@
-package com.cyberchatbot;
+package com.cyberchatbot.chatbot;
 
 public class Chatbot {
 

@@ -1,4 +1,4 @@
-package com.cyberchatbot;
+package com.cyberchatbot.ui;
 
 public class ConsoleUI {
 

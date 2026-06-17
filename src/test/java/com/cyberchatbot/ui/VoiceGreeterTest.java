@@ -1,6 +1,4 @@
-package com.cyberchatbot;
-
-import org.junit.jupiter.api.Test;
+package com.cyberchatbot.ui;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
