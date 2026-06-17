@@ -52,7 +52,7 @@ public class ConsoleUI {
     }
 
     public static void printPrompt() {
-        System.out.print(BLUE + "[You] > " + RESET);
+        System.out.print(BLUE + "[You] : " + RESET);
     }
 
     public static void printBotResponse(String message) {
