@@ -41,34 +41,40 @@ public class VoiceGreeter {
             this.say(somethingMore[i]);
         }
     }
-    public static void greet() {
 
-        // Threading
+    public void speakSync(String something) {
         Thread speechThread = new Thread(() -> {
             try {
-                VoiceGreeter voice = new VoiceGreeter("kevin16");
-
-                String[] cyberTalk = new String[]{
-                        "Welcome to CyberBot. Your cybersecurity guide!"
-//                    "Hello! Before we begin, what is your name?"
-//                    "Ask me about passwords",
-//                    "Ask me about phishing",
-//                    "Ask me about malware attacks"
-                };
-
-                voice.sayMore(cyberTalk);
+                this.say(something);
             } catch (Exception e) {
-                ConsoleUI.printError("[System Warning] Audio subsystem unavailable: " + e.getMessage() + "\n");
+                ConsoleUI.printError("[System Warning] Voice reply cut short: " + e.getMessage() + "\n");
             }
         });
+        speechThread.setDaemon(true);
         speechThread.start();
 
-        // pause the thread temporarily to create a delay between start of program (banner) and first botResponse
-        // evaluate if this is necessary, will it be true for all following time kevin has to speak
+        // Forces greeting styling delay
         try {
             speechThread.join();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+            ConsoleUI.printError(" [System Warning] Audio playback interrupted.\n");
+        }
+    }
+
+    public static void greet() {
+        VoiceGreeter voice = null;
+        try {
+            voice = new VoiceGreeter("kevin16");
+
+            voice.speakSync("Welcome to CyberBot. Your cybersecurity guide!");
+
+        } catch (Exception e) {
+            ConsoleUI.printError("[System Warning] Audio subsystem unavailable: " + e.getMessage() + "\n");
+        } finally {
+            if (voice != null && voice.voice != null) {
+                voice.voice.deallocate();
+            }
         }
     }
 
