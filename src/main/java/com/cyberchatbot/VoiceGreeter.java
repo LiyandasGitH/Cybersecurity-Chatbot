@@ -62,6 +62,24 @@ public class VoiceGreeter {
         }
     }
 
+    public static void speakAsync(String message) {
+        Thread speechThread = new Thread(() -> {
+           VoiceGreeter voice = null;
+           try {
+               voice = new VoiceGreeter("kevin16");
+               voice.say(message);
+           } catch (Exception e) {
+               ConsoleUI.printError(" [System Warning] Voice reply cut short: " + e.getMessage() + "\n");
+           } finally {
+               if (voice != null && voice.voice != null) {
+                   voice.voice.deallocate();
+               }
+           }
+        });
+        speechThread.setDaemon(true);
+        speechThread.start();
+    }
+
     public static void greet() {
         VoiceGreeter voice = null;
         try {

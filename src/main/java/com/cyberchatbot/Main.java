@@ -51,8 +51,7 @@ public class Main {
             }
 
             // placeholder for bot response
-//            ResponseEngine.getResponse(userInput);
-//            System.out.println(userInput);
+            ResponseEngine.getResponse(userInput);
 
 //            else {
 //                isActive = false;
