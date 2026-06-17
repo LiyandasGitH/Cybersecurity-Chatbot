@@ -49,16 +49,13 @@ public class VoiceGreeter {
                 VoiceGreeter voice = new VoiceGreeter("kevin16");
 
                 String[] cyberTalk = new String[]{
-                        "Welcome to CyberBot - your cybersecurity guide!"
+                        "Welcome to CyberBot. Your cybersecurity guide!"
 //                    "Hello! Before we begin, what is your name?"
 //                    "Ask me about passwords",
 //                    "Ask me about phishing",
 //                    "Ask me about malware attacks"
                 };
 
-//        for (String option : cyberTalk) {
-//            System.out.println(option);
-//        }
                 voice.sayMore(cyberTalk);
             } catch (Exception e) {
                 ConsoleUI.printError("[System Warning] Audio subsystem unavailable: " + e.getMessage() + "\n");
@@ -66,30 +63,10 @@ public class VoiceGreeter {
         });
         speechThread.start();
 
-        // PAUSE before we're introduced to the program
-//        try {
-//            VoiceGreeter voice = new VoiceGreeter("kevin16");
-//
-//            String[] cyberTalk = new String[]{
-//                    "Welcome to CyberBot. Your cybersecurity guide!"
-////                    "Hello! Before we begin, what is your name?"
-////                    "Ask me about passwords",
-////                    "Ask me about phishing",
-////                    "Ask me about malware attacks"
-//            };
-//
-////        for (String option : cyberTalk) {
-////            System.out.println(option);
-////        }
-//            voice.sayMore(cyberTalk);
-//        } catch (Exception e) {
-//            System.err.println(ConsoleUI.YELLOW + "[System Warning] : Audio subsystem unavailable: " + e.getMessage() + ConsoleUI.RESET);
-//        }
-    }
-
-    public void close() {
-        if (voice != null) {
-            voice.deallocate();
+        try {
+            speechThread.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
     }
 

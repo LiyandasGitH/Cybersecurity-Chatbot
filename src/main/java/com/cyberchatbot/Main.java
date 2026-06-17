@@ -10,19 +10,12 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ConsoleUI.printBanner();
-        // fix this so that "Welcome to CyberBot" is the first audio sound heard, reads below the banner
         VoiceGreeter.greet();
-
-        // should pause while reading banner, then start the "Hello! Before we begin, what is your name?" part
-        Running running = new Running();
-        Thread thread = new Thread(running);
-        thread.setDaemon(true);
-        thread.start();
 
         String userName = "";
         while (userName.isEmpty()) {
             ConsoleUI.printBotResponse("Hello! Before we begin, what is your name?");
-//            ConsoleUI.printPrompt();
+            ConsoleUI.printPrompt();
             userName = scanner.nextLine().trim();
 
             if (userName.isEmpty()) {
