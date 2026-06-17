@@ -63,6 +63,8 @@ public class VoiceGreeter {
         });
         speechThread.start();
 
+        // pause the thread temporarily to create a delay between start of program (banner) and first botResponse
+        // evaluate if this is necessary, will it be true for all following time kevin has to speak
         try {
             speechThread.join();
         } catch (InterruptedException e) {
