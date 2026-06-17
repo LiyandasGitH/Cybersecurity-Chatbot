@@ -1,6 +1,8 @@
 package com.cyberchatbot;
 
 //import org.fusesource.jansi.AnsiConsole;
+import com.cyberchatbot.Chatbot;
+import com.cyberchatbot.VoiceGreeter;
 
 import java.util.Scanner;
 
@@ -11,16 +13,29 @@ public class Main {
         // fix this so that "Welcome to CyberBot" is the first audio sound heard, reads below the banner
         VoiceGreeter.greet();
 
+        // should pause while reading banner, then start the "Hello! Before we begin, what is your name?" part
+        Running running = new Running();
+        Thread thread = new Thread(running);
+        thread.setDaemon(true);
+        thread.start();
+
         String userName = "";
         while (userName.isEmpty()) {
             ConsoleUI.printBotResponse("Hello! Before we begin, what is your name?");
-            ConsoleUI.printPrompt();
+//            ConsoleUI.printPrompt();
             userName = scanner.nextLine().trim();
 
             if (userName.isEmpty()) {
                 ConsoleUI.printBotResponse("Name cannot be empty. Please enter a valid name.");
                 System.out.println();
             }
+            // checks if name entered is "quit" or "exit"
+            else if (userName.equalsIgnoreCase("exit") || (userName.equalsIgnoreCase("quit"))) {
+//                System.out.println();
+                ConsoleUI.printBotResponse("Goodbye " + userName + "! Stay safe online!");
+                return;
+            }
+
         }
         ConsoleUI.printBotResponse("Hi " + userName + "! Ask me about phishing, password and malware attacks.");
 
@@ -37,7 +52,7 @@ public class Main {
             String userInput = scanner.nextLine().trim();
 
             if (userInput.equalsIgnoreCase("exit") || (userInput.equalsIgnoreCase("quit"))) {
-                System.out.println();
+//                System.out.println();
                 ConsoleUI.printBotResponse("Goodbye " + userName + "! Stay safe online!");
                 break;
             }
