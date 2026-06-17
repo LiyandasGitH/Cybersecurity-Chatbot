@@ -60,6 +60,6 @@ public class ConsoleUI {
     }
 
     public static void printError(String message) {
-        System.out.print(RED + "[!]" + message + RESET);
+        System.out.print(RED + "[❌]" + message + RESET);
     }
 }
