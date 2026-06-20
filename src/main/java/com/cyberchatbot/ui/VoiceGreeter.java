@@ -5,7 +5,6 @@ import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
 public class VoiceGreeter {
-    private final String name;
     static {
         System.setProperty(
                 "freetts.voices",
@@ -15,13 +14,12 @@ public class VoiceGreeter {
     private final Voice voice;
 
     public VoiceGreeter(String name) {
-        this.name = name;
 
         voice = VoiceManager.getInstance().getVoice(name);
 
         if (voice == null) {
             throw new IllegalStateException(
-                    "Voice '" + this.name + "' could not be found."
+                    "Voice '" + name + "' could not be found."
             );
         }
         voice.allocate();
