@@ -47,7 +47,7 @@ public class VoiceGreeter {
             try {
                 this.say(something);
             } catch (Exception e) {
-                ConsoleUI.printError("[System Warning] Voice reply cut short: " + e.getMessage() + "\n");
+                ConsoleUI.printError("Voice reply cut short: " + e.getMessage() + "\n");
             }
         });
         speechThread.setDaemon(true);
@@ -58,21 +58,21 @@ public class VoiceGreeter {
             speechThread.join();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            ConsoleUI.printError(" [System Warning] Audio playback interrupted.\n");
+            ConsoleUI.printError("Audio playback interrupted.\n");
         }
     }
 
     public static void speakAsync(String message) {
         Thread speechThread = new Thread(() -> {
-           VoiceGreeter voice = null;
-           try {
-               voice = new VoiceGreeter("kevin16");
-               voice.say(message);
-           } catch (Exception e) {
-               ConsoleUI.printError(" [System Warning] Voice reply cut short: " + e.getMessage() + "\n");
-           } finally {
-               if (voice != null && voice.voice != null) {
-                   voice.voice.deallocate();
+           VoiceGreeter voice = allocateVoice();
+
+           if (voice != null) {
+               try {
+                   voice.say(message);
+               } finally {
+                   if (voice.voice != null) {
+                       voice.voice.deallocate();
+                   }
                }
            }
         });
@@ -81,23 +81,48 @@ public class VoiceGreeter {
     }
 
     public static void greet() {
-        VoiceGreeter voice = null;
-        try {
-            voice = new VoiceGreeter("kevin16");
-//
-//            voice.speakSync("Welcome to CyberBot. Your cybersecurity guide!");
 
-            String welcomeMsg = "Welcome to CyberBot. Your cybersecurity guide!";
+        String welcomeMsg = "Welcome to CyberBot. Your cybersecurity guide!";
 
-            voice.speakSync(welcomeMsg);
+        VoiceGreeter voice = allocateVoice();
 
-        } catch (Exception e) {
-            ConsoleUI.printError("[System Warning] Audio subsystem unavailable: " + e.getMessage() + "\n");
-        } finally {
-            if (voice != null && voice.voice != null) {
-                voice.voice.deallocate();
+        if (voice != null) {
+            try {
+                voice.speakSync(welcomeMsg);
+            }
+            finally {
+                if (voice.voice != null) {
+                    voice.voice.deallocate();
+                }
             }
         }
     }
 
+    public static void speakClosing(String message) {
+        VoiceGreeter voice = allocateVoice();
+
+        if (voice != null) {
+            try {
+                Thread closingThread = new Thread(() -> voice.say(message));
+                closingThread.start();
+                closingThread.join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+            finally {
+                if (voice.voice != null) {
+                    voice.voice.deallocate();
+                }
+            }
+        }
+    }
+
+    private static VoiceGreeter allocateVoice() {
+        try {
+            return new VoiceGreeter("kevin16");
+        } catch (Exception e) {
+            ConsoleUI.printError("Audio subsystem unavailable: " + e.getMessage() + "\n");
+            return null;
+        }
+    }
 }
