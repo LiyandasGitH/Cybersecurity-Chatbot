@@ -84,8 +84,12 @@ public class VoiceGreeter {
         VoiceGreeter voice = null;
         try {
             voice = new VoiceGreeter("kevin16");
+//
+//            voice.speakSync("Welcome to CyberBot. Your cybersecurity guide!");
 
-            voice.speakSync("Welcome to CyberBot. Your cybersecurity guide!");
+            String welcomeMsg = "Welcome to CyberBot. Your cybersecurity guide!";
+
+            voice.speakSync(welcomeMsg);
 
         } catch (Exception e) {
             ConsoleUI.printError("[System Warning] Audio subsystem unavailable: " + e.getMessage() + "\n");
