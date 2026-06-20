@@ -117,6 +117,12 @@ public class VoiceGreeter {
         }
     }
 
+
+    /**
+     * Manage audio allocation and initilisation
+     *
+     * @return an allocated VoiceGreeter instance or null if audio fails
+     */
     private static VoiceGreeter allocateVoice() {
         try {
             return new VoiceGreeter("kevin16");
