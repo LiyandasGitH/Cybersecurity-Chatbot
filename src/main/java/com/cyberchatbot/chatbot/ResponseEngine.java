@@ -26,7 +26,6 @@ public class ResponseEngine {
             if (botResponse.contains(entry.getKey())) {
                 String reply = entry.getValue();
 
-                ConsoleUI.printBotResponse(reply);
                 VoiceGreeter.speakAsync(reply);
 
                 return reply;
