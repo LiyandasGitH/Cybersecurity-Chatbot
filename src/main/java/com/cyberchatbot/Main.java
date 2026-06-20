@@ -5,11 +5,9 @@ package com.cyberchatbot;
 import com.cyberchatbot.chatbot.*;
 import com.cyberchatbot.ui.*;
 
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in);
         ConsoleUI.printBanner();
         VoiceGreeter.greet();
 
@@ -19,6 +17,5 @@ public class Main {
         Chatbot bot = new Chatbot();
         bot.start();
 
-//        scanner.close();
     }
 }

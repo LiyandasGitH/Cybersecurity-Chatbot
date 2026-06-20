@@ -32,14 +32,15 @@ public class Chatbot {
     private boolean fetchUserName() {
         String userName = "";
 
+        ConsoleUI.printBotResponse("Hello! Before we begin, what is your name?");
+
         while (userName.isEmpty()) {
-            ConsoleUI.printBotResponse("Hello! Before we begin, what is your name?");
             ConsoleUI.printPrompt();
             userName = scanner.nextLine().trim();
 
             if (userName.isEmpty()) {
-                ConsoleUI.printError("Name cannot be empty. Please enter a valid name.");
-                System.out.println();
+                ConsoleUI.printError("Name cannot be empty. Please enter a valid name.\n");
+                ConsoleUI.printBotResponse("Before we begin, what is your name?");
             }
             // checks if name entered is "quit" or "exit"
             else if (userName.equalsIgnoreCase("exit") || (userName.equalsIgnoreCase("quit"))) {
@@ -59,6 +60,7 @@ public class Chatbot {
 
             if (userInput == null || userInput.trim().isEmpty()) {
                 ConsoleUI.printError("Please type a valid question or topic.");
+                System.out.println();
             }
             else if (userInput.equalsIgnoreCase("exit") || (userInput.equalsIgnoreCase("quit"))) {
                 goodbye();
@@ -71,7 +73,6 @@ public class Chatbot {
     }
 
     private void goodbye() {
-        System.out.println();
         String nameGotten = (user != null) ? user.getName() : "User";
         ConsoleUI.printBotResponse("Goodbye " + nameGotten + "! Stay safe online!");
     }
