@@ -17,16 +17,10 @@ public class Chatbot {
     }
 
     public void start() {
+        fetchUserName();
+        welcomeMessage();
 
-        if (!fetchUserName()) {
-            return;
-        }
 
-        String talking = "Hi " + user.getName() + "! I can answer questions about " +
-                responseEngine.getTopicCount() + " cybersecurity topics. " +
-                "\n" + "Type 'exit' to quit program.";
-        ConsoleUI.printBotResponse(talking);
-        VoiceGreeter.speakAsync(talking);
 
 //        ConsoleUI.printBotResponse(
 //                "Hi " + user.getName() + "! I can answer questions about " +
@@ -36,7 +30,30 @@ public class Chatbot {
         chatWithBot();
     }
 
-    private boolean fetchUserName() {
+    private void welcomeMessage() {
+        String talking = "Hi " + user.getName() + "! I can answer questions about " +
+                responseEngine.getTopicCount() + " cybersecurity topics. ";
+        String helpMsg = "Type 'help to find out more about the program.";
+        String suggestionMsg = "Try asking about: phishing, passwords, malware, 2FA, " +
+                "VPNs, Wi-Fi, ransomware, backups, or firewalls.\n";
+        String exitMsg = "Type 'exit' to quit program.";
+
+        ConsoleUI.printBotResponse(talking);
+        ConsoleUI.printBotResponse(suggestionMsg);
+        ConsoleUI.printBotResponse(helpMsg);
+        ConsoleUI.printBotResponse(exitMsg);
+
+//        VoiceGreeter.speakAsync(talking);
+//        VoiceGreeter.speakClosing(suggestionMsg);
+//        VoiceGreeter.speakClosing(helpMsg);
+//        VoiceGreeter.speakClosing(exitMsg);
+
+        String audioScript = talking + helpMsg + suggestionMsg + exitMsg;
+        VoiceGreeter.speakAsync(audioScript);
+
+    }
+
+    private void fetchUserName() {
         String userName = "";
 
         String greetings = "Hello! Before we begin, what is your name?";
@@ -102,13 +119,11 @@ public class Chatbot {
             // checks if name entered is "quit" or "exit"
             else if (userName.equalsIgnoreCase("exit") || (userName.equalsIgnoreCase("quit"))) {
                 goodbye();
-                return false;
             }
 
         }
         userName = Character.toUpperCase(userName.charAt(0)) + userName.substring(1);
         this.user = new User(userName);
-        return true;
     }
 
     private void chatWithBot() {
