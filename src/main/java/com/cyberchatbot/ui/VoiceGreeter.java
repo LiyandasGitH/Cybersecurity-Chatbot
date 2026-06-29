@@ -4,12 +4,25 @@ package com.cyberchatbot.ui;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class VoiceGreeter {
     static {
         System.setProperty(
                 "freetts.voices",
                 "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory"
         );
+
+//        System.setProperty("com.sun.speech.freetts.audio.AudioPlayer.cancelDelay","0");
+        Logger.getLogger("com.sun.speech.freetts").setLevel(Level.OFF);
+//
+//        System.setProperty("com.sun.speech.freetts.voice.defaultAudioPlayer", "com.sun.speech.freetts.audio.NullAudioPlayer"); // fallback check
+//        System.setProperty("com.sun.speech.freetts.Voice.showMetrics", "false");
+//        System.setProperty("com.sun.speech.freetts.Voice.showTimings", "false");
+//
+//        System.setProperty("com.sun.speech.freetts.CMUDiphoneVoice.showDiphones", "false");
+
     }
     private final Voice voice;
 
