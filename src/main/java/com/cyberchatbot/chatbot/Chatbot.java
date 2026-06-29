@@ -47,28 +47,66 @@ public class Chatbot {
 
         while (userName.isEmpty()) {
             ConsoleUI.printPrompt();
-            userName = scanner.nextLine().trim();
+
+            String input = scanner.nextLine();
+
+            if (input == null) {
+                String couldNotReadError = "Could not read input. Exiting";
+                ConsoleUI.printError(couldNotReadError);
+                VoiceGreeter.speakClosing(couldNotReadError);
+                System.exit(1);
+            }
+
+            userName = input.trim();
 
             if (userName.isEmpty()) {
 
                 String emptyNameError = "Name cannot be empty. Please enter a valid name.\n";
                 ConsoleUI.printError(emptyNameError);
-                VoiceGreeter.speakAsync(emptyNameError);
+                VoiceGreeter.speakClosing(emptyNameError);
 
 //                ConsoleUI.printError("Name cannot be empty. Please enter a valid name.\n");
 
                 String nameRequest = "Before we begin, what is your name?";
                 ConsoleUI.printBotResponse(nameRequest);
-                VoiceGreeter.speakAsync(emptyNameError);
+                VoiceGreeter.speakAsync(nameRequest);
+
+                continue;
 
 //                ConsoleUI.printBotResponse("Before we begin, what is your name?");
+            }
+
+            if (userName.matches("\\d+")) {
+                String numberError = "That looks like a number, not a name. Please try again.";
+                ConsoleUI.printError(numberError);
+                VoiceGreeter.speakClosing(numberError);
+
+                String nameRequest = "Before we begin, what is your name?";
+                ConsoleUI.printBotResponse(nameRequest);
+                VoiceGreeter.speakAsync(nameRequest);
+
+                continue;
+            }
+
+            if (userName.length() > 50) {
+                String nameTooLong = "That name is too long. Please use 50 characters or fewer.\n";
+                ConsoleUI.printError(nameTooLong);
+                VoiceGreeter.speakClosing(nameTooLong);
+
+                String nameRequest = "Before we begin, what is your name?";
+                ConsoleUI.printBotResponse(nameRequest);
+                VoiceGreeter.speakAsync(nameRequest);
+
+                userName = "";
             }
             // checks if name entered is "quit" or "exit"
             else if (userName.equalsIgnoreCase("exit") || (userName.equalsIgnoreCase("quit"))) {
                 goodbye();
                 return false;
             }
+
         }
+        userName = Character.toUpperCase(userName.charAt(0)) + userName.substring(1);
         this.user = new User(userName);
         return true;
     }
@@ -82,7 +120,7 @@ public class Chatbot {
             if (userInput == null || userInput.trim().isEmpty()) {
                 String questionError = "Please type a valid question or topic.";
                 ConsoleUI.printError(questionError);
-                VoiceGreeter.speakAsync(questionError);
+                VoiceGreeter.speakClosing(questionError);
 
 //                ConsoleUI.printError("Please type a valid question or topic.");
                 System.out.println();
