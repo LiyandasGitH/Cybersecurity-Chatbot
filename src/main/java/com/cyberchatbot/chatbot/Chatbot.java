@@ -113,7 +113,7 @@ public class Chatbot {
                 continue;
             }
             // checks if name entered is "quit" or "exit"
-            if (userName.equalsIgnoreCase("exit") || (userName.equalsIgnoreCase("quit"))) {
+            if (isExitCommand(userName)) {
                 goodbye();
                 return false;
             }
@@ -155,7 +155,7 @@ public class Chatbot {
                 helpCentre();
             }
 
-            else if (userInput.equalsIgnoreCase("exit") || (userInput.equalsIgnoreCase("quit"))) {
+            else if (isExitCommand(userInput)) {
                 goodbye();
                 break;
             }
@@ -167,6 +167,18 @@ public class Chatbot {
         }
     }
 
+    public boolean isExitCommand(String input) {
+        String[] exitCommands = {
+                "exit", "quit", "q"
+        };
+        String lower = input.toLowerCase();
+        for (String command : exitCommands) {
+            if (lower.equals(command)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     private void goodbye() {
         String nameGotten = (user != null) ? user.getName() : "User";
