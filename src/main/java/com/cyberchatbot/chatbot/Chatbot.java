@@ -17,9 +17,12 @@ public class Chatbot {
     }
 
     public void start() {
-        fetchUserName();
-        welcomeMessage();
 
+        if (!fetchUserName()) {
+            return;
+        }
+
+        welcomeMessage();
 
 
 //        ConsoleUI.printBotResponse(
@@ -35,7 +38,7 @@ public class Chatbot {
                 responseEngine.getTopicCount() + " cybersecurity topics. ";
         String helpMsg = "Type 'help to find out more about the program.";
         String suggestionMsg = "Try asking about: phishing, passwords, malware, 2FA, " +
-                "VPNs, Wi-Fi, ransomware, backups, or firewalls.\n";
+                "VPNs, Wi-Fi, ransomware, backups, or firewalls.";
         String exitMsg = "Type 'exit' to quit program.";
 
         ConsoleUI.printBotResponse(talking);
@@ -49,11 +52,11 @@ public class Chatbot {
 //        VoiceGreeter.speakClosing(exitMsg);
 
         String audioScript = talking + helpMsg + exitMsg;
-        VoiceGreeter.speakAsync(audioScript);
+        VoiceGreeter.speakClosing(audioScript);
 
     }
 
-    private void fetchUserName() {
+    private boolean fetchUserName() {
         String userName = "";
 
         String greetings = "Hello! Before we begin, what is your name?";
@@ -93,8 +96,8 @@ public class Chatbot {
 //                ConsoleUI.printBotResponse("Before we begin, what is your name?");
             }
 
-            if (userName.matches("\\d+")) {
-                String numberError = "That looks like a number, not a name. Please try again.";
+            if (userName.matches(".*\\d+.*")) {
+                String numberError = "That looks like a number, not a name. Please try again.\n";
                 ConsoleUI.printError(numberError);
                 VoiceGreeter.speakClosing(numberError);
 
@@ -102,6 +105,7 @@ public class Chatbot {
                 ConsoleUI.printBotResponse(nameRequest);
                 VoiceGreeter.speakAsync(nameRequest);
 
+                userName = "";
                 continue;
             }
 
@@ -115,15 +119,18 @@ public class Chatbot {
                 VoiceGreeter.speakAsync(nameRequest);
 
                 userName = "";
+                continue;
             }
             // checks if name entered is "quit" or "exit"
-            else if (userName.equalsIgnoreCase("exit") || (userName.equalsIgnoreCase("quit"))) {
+            if (userName.equalsIgnoreCase("exit") || (userName.equalsIgnoreCase("quit"))) {
                 goodbye();
+                return false;
             }
 
         }
         userName = Character.toUpperCase(userName.charAt(0)) + userName.substring(1);
         this.user = new User(userName);
+        return true;
     }
 
     private void chatWithBot() {
@@ -133,7 +140,7 @@ public class Chatbot {
             String userInput = scanner.nextLine();
 
             if (userInput == null || userInput.trim().isEmpty()) {
-                String questionError = "Please type a valid question or topic.";
+                String questionError = "Please type a valid question or topic.\n";
                 ConsoleUI.printError(questionError);
                 VoiceGreeter.speakClosing(questionError);
 
