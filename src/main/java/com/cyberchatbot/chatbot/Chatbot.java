@@ -48,7 +48,7 @@ public class Chatbot {
 //        VoiceGreeter.speakClosing(helpMsg);
 //        VoiceGreeter.speakClosing(exitMsg);
 
-        String audioScript = talking + helpMsg + suggestionMsg + exitMsg;
+        String audioScript = talking + helpMsg + exitMsg;
         VoiceGreeter.speakAsync(audioScript);
 
     }
