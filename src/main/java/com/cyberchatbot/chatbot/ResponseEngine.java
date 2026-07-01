@@ -49,7 +49,7 @@ public class ResponseEngine {
 
         responses.put("password",
                 "Use a strong password of at least 12 characters mixing uppercase, lowercase, numbers, " +
-                "and symbols. Never reuse passwords — use a password manager like Bitwarden.");
+                "and symbols. Never reuse passwords — use a reliable password manager.");
 
         responses.put("malware",
                 "Malware includes viruses, ransomware, and spyware. Keep your OS and antivirus updated, " +
