@@ -142,20 +142,46 @@ public class Chatbot {
         boolean isActive = true;
         while (isActive) {
             ConsoleUI.printPrompt();
+
             String userInput = scanner.nextLine();
 
-            if (userInput == null || userInput.trim().isEmpty()) {
+            if (userInput == null) {
+                goodbye();
+                break;
+            }
+
+            if (userInput.trim().isEmpty()) {
                 String questionError = "Please type a valid question or topic.\n";
                 ConsoleUI.printError(questionError);
                 VoiceGreeter.speakClosing(questionError);
-
-                System.out.println();
-            }
-            else if (userInput.equalsIgnoreCase("help")) {
                 helpCentre();
+
+                continue;
             }
 
-            else if (isExitCommand(userInput)) {
+            if (userInput.length() > 250) {
+                String lengthError = "That input is too long. Please keep questions under 250 characters.\n";
+                ConsoleUI.printError(lengthError);
+                VoiceGreeter.speakClosing(lengthError);
+
+                continue;
+            }
+
+            if (userInput.matches("\\d+")) {
+                String digitError = "I only work with text based questions!\n";
+                ConsoleUI.printError(digitError);
+                VoiceGreeter.speakClosing(digitError);
+                helpCentre();
+
+                continue;
+            }
+
+            if (userInput.equalsIgnoreCase("help")) {
+                helpCentre();
+                continue;
+            }
+
+            if (isExitCommand(userInput)) {
                 goodbye();
                 break;
             }
@@ -186,8 +212,6 @@ public class Chatbot {
         String goodbyeMsg = "Goodbye " + nameGotten + "! Stay safe online!";
         ConsoleUI.printBotResponse(goodbyeMsg);
         VoiceGreeter.speakClosing(goodbyeMsg);
-
-//        ConsoleUI.printBotResponse("Goodbye " + nameGotten + "! Stay safe online!");
     }
 
 }
