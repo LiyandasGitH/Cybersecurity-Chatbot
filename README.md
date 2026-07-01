@@ -54,7 +54,7 @@ No source code from the original implementation was used.
 
 ## LICENSE
 
-(will add license type here)
+GPL-3.0 license
 
 ## Author/s 
 
