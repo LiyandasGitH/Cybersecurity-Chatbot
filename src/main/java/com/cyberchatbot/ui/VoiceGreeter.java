@@ -13,6 +13,9 @@ public class VoiceGreeter {
                 "freetts.voices",
                 "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory"
         );
+        /**
+         * The following commented out code are ways to turn off the diphone errors from logging and showing up in the terminal
+         */
 
 //        System.setProperty("com.sun.speech.freetts.audio.AudioPlayer.cancelDelay","0");
         Logger.getLogger("com.sun.speech.freetts").setLevel(Level.OFF);
