@@ -3,6 +3,7 @@ package com.cyberchatbot.chatbot;
 import com.cyberchatbot.ui.ConsoleUI;
 import com.cyberchatbot.ui.VoiceGreeter;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Chatbot {
@@ -24,36 +25,32 @@ public class Chatbot {
 
         welcomeMessage();
 
-
-//        ConsoleUI.printBotResponse(
-//                "Hi " + user.getName() + "! I can answer questions about " +
-//                responseEngine.getTopicCount() + " cybersecurity topics. " +
-//                "\n" + "Type 'exit' to quit program."
-//        );
         chatWithBot();
     }
 
     private void welcomeMessage() {
         String talking = "Hi " + user.getName() + "! I can answer questions about " +
                 responseEngine.getTopicCount() + " cybersecurity topics. ";
-        String helpMsg = "Type 'help to find out more about the program.";
-        String suggestionMsg = "Try asking about: phishing, passwords, malware, 2FA, " +
-                "VPNs, Wi-Fi, ransomware, backups, or firewalls.";
+        String helpMsg = "Type 'help' to find out more about the topics.";
         String exitMsg = "Type 'exit' to quit program.";
 
         ConsoleUI.printBotResponse(talking);
-        ConsoleUI.printBotResponse(suggestionMsg);
         ConsoleUI.printBotResponse(helpMsg);
         ConsoleUI.printBotResponse(exitMsg);
-
-//        VoiceGreeter.speakAsync(talking);
-//        VoiceGreeter.speakClosing(suggestionMsg);
-//        VoiceGreeter.speakClosing(helpMsg);
-//        VoiceGreeter.speakClosing(exitMsg);
 
         String audioScript = talking + helpMsg + exitMsg;
         VoiceGreeter.speakClosing(audioScript);
 
+    }
+
+    private static void helpCentre() {
+        /**
+         * Display all the cybersecurity options available to the user
+         */
+        String suggestionMsg = "Try asking about: phishing, passwords, malware, 2FA, " +
+                "VPNs, Wi-Fi, ransomware, backups, or firewalls.";
+        ConsoleUI.printBotResponse(suggestionMsg);
+        VoiceGreeter.speakAsync(suggestionMsg);
     }
 
     private boolean fetchUserName() {
@@ -62,8 +59,6 @@ public class Chatbot {
         String greetings = "Hello! Before we begin, what is your name?";
         ConsoleUI.printBotResponse(greetings);
         VoiceGreeter.speakAsync(greetings);
-
-//        ConsoleUI.printBotResponse("Hello! Before we begin, what is your name?");
 
         while (userName.isEmpty()) {
             ConsoleUI.printPrompt();
@@ -85,18 +80,14 @@ public class Chatbot {
                 ConsoleUI.printError(emptyNameError);
                 VoiceGreeter.speakClosing(emptyNameError);
 
-//                ConsoleUI.printError("Name cannot be empty. Please enter a valid name.\n");
-
                 String nameRequest = "Before we begin, what is your name?";
                 ConsoleUI.printBotResponse(nameRequest);
                 VoiceGreeter.speakAsync(nameRequest);
 
                 continue;
-
-//                ConsoleUI.printBotResponse("Before we begin, what is your name?");
             }
 
-            if (userName.matches(".*\\d+.*")) {
+            if (userName.matches("\\d+")) {
                 String numberError = "That looks like a number, not a name. Please try again.\n";
                 ConsoleUI.printError(numberError);
                 VoiceGreeter.speakClosing(numberError);
@@ -128,9 +119,23 @@ public class Chatbot {
             }
 
         }
-        userName = Character.toUpperCase(userName.charAt(0)) + userName.substring(1);
-        this.user = new User(userName);
+        String cleanName = capitaliseString(userName);
+        this.user = new User(cleanName);
         return true;
+    }
+
+    private String capitaliseString(String rawName) {
+        String[] words = rawName.split("\\s+");
+        StringBuilder capitaliseName = new StringBuilder();
+
+        for (String word : words) {
+            if (!word.isEmpty()) {
+                capitaliseName.append(Character.toUpperCase(word.charAt(0)))
+                        .append(word.substring(1).toLowerCase())
+                        .append(" ");
+            }
+        }
+        return capitaliseName.toString().trim();
     }
 
     private void chatWithBot() {
@@ -144,19 +149,24 @@ public class Chatbot {
                 ConsoleUI.printError(questionError);
                 VoiceGreeter.speakClosing(questionError);
 
-//                ConsoleUI.printError("Please type a valid question or topic.");
                 System.out.println();
             }
+            else if (userInput.equalsIgnoreCase("help")) {
+                helpCentre();
+            }
+
             else if (userInput.equalsIgnoreCase("exit") || (userInput.equalsIgnoreCase("quit"))) {
                 goodbye();
                 break;
             }
+
             else {
                 String botAnswer = responseEngine.getResponse(userInput);
                 ConsoleUI.printBotResponse(botAnswer);
             }
         }
     }
+
 
     private void goodbye() {
         String nameGotten = (user != null) ? user.getName() : "User";
