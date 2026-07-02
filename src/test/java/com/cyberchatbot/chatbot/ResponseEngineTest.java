@@ -3,6 +3,9 @@ package com.cyberchatbot.chatbot;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ResponseEngineTest {
@@ -72,6 +75,27 @@ public class ResponseEngineTest {
                     "getResponse() must never return null for input: '" + input + "'");
         }
     }
+
+    @Test
+    void testRepeatedCallsCanReturnDifferentResponses() {
+
+        Set<String> seen = new HashSet<>();
+        for (int i = 0; i < 20; i++) {
+            seen.add(engine.getResponse("phishing"));
+        }
+        assertTrue(seen.size() > 1, "Should return varied responses across multiple calls");
+    }
+
+    @Test
+    void testAllTopicsHaveAtLeastTwoResponses() {
+
+        assertTrue(engine.getTopicCount() >= 10,
+                "Engine should have at least 10 topics loaded");
+    }
+
+
+
+
 
 
 

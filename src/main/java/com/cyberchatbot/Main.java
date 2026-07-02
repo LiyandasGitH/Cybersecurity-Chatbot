@@ -21,11 +21,11 @@ public class Main {
             }
         }));
 
+        AnsiConsole.systemInstall();
+
         ConsoleUI.printBanner();
         VoiceGreeter.greet();
 
-//         future implementation for Windows terminal display
-        AnsiConsole.systemInstall();
 
         Chatbot bot = new Chatbot();
         bot.start();
