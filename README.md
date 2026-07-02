@@ -11,6 +11,13 @@ Built entirely on Object-Oriented Programming (OOP) principles, this tool serves
 
 ## Project Overview 
 
+A Java console application that educates users about common cybersecurity
+threats through conversational interaction.
+
+## Demo 
+
+(youtube link)
+
 ## Project Structure 
 
 ```text
@@ -43,9 +50,44 @@ cybersecurity-chatbot/
 
 ## UML Diagram
 
-## Unit Testing
+## Features
 
-## Technologies Used
+- ASCII art banner with ANSI colour output
+- Voice greeting on startup (FreeTTS)
+- 12 cybersecurity topics with keyword matching
+- Input validation (blank, numeric, length, exit commands)
+- Animated typing effect for responses
+- Session summary on exit
+- Help command listing all available topics
+
+## Requirements 
+
+- JDK 11 or higher
+- Apache Maven 3.6+
+- Windows Terminal, PowerShell, or any Unix terminal (for ANSI colours)
+
+## Running the Application
+
+```text
+mvn exec:java
+```
+
+## Running the Tests
+```text
+mvn test
+```
+
+## Known Limitations 
+
+- FreeTTS may produce warnings on JDK 17+; the chatbot runs correctly without
+  voice if TTS fails to initialise
+- ANSI colours do not render in legacy Windows cmd.exe without Jansi
+
+## Topics Covered 
+
+phishing · passwords · malware · 2FA · VPN · Wi-Fi safety ·
+ransomware · backups · firewalls · social engineering · software updates
+
 
 ## Disclaimer
 
