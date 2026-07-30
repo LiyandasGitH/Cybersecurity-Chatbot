@@ -60,7 +60,7 @@ cybersecurity-chatbot/
 
 - ASCII art banner with ANSI colour output
 - Voice greeting on startup (FreeTTS)
-- 12 cybersecurity topics with keyword matching
+- A range of cybersecurity topics with keyword matching
 - Input validation (blank, numeric, length, exit commands)
 - Animated typing effect for responses
 - Session summary on exit
