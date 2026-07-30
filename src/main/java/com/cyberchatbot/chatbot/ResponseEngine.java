@@ -126,14 +126,15 @@ public class ResponseEngine {
         ));
 
         responses.put("social engineering", List.of(
-                "Social engineering manipulates people rather than systems. " +
-                        "Attackers exploit trust, authority, and urgency to bypass technical defences.",
+                "Social engineering manipulates people into performing actions or divulging confidential information rather than systems.",
+                "Attackers exploit trust, authority, and urgency to bypass technical defences.",
                 "Be suspicious of any unsolicited request for credentials, access, or money — " +
                         "even if the caller claims to be from IT support or your bank.",
                 "Pretexting involves creating a fabricated scenario to extract information. " +
                         "Verify identities through official channels before sharing anything sensitive.",
                 "Tailgating is physically following someone into a restricted area. " +
-                        "Never hold doors open for people you don't recognise, even if they look official."
+                        "Never hold doors open for people you don't recognise, even if they look official.",
+                "Social engineers often rely on people's willingness to be helpful, but they also prey on their weaknesses."
         ));
 
         responses.put("update", List.of(
@@ -152,7 +153,7 @@ public class ResponseEngine {
                         "Paying does not guarantee recovery and funds future attacks.",
                 "The best defence against ransomware is offline backups. " +
                         "If your files are backed up somewhere the ransomware can't reach, you can restore without paying.",
-                "Ransomware most commonly enters through phishing emails with malicious attachments " +
+                "Ransodmware most commonly enters through phishing emails with malicious attachments " +
                         "or through unpatched remote desktop (RDP) vulnerabilities.",
                 "Never open email attachments you weren't expecting, especially .zip, .exe, " +
                         "or Office files that ask you to enable macros."
@@ -185,36 +186,120 @@ public class ResponseEngine {
                 "Spyware can log every key you press on your keyboard, as well as capture almost any of your data",
                 "Data often stolen by spyware include, sensitive personal information, online banking details, even your identity",
                 "Spyware is operated by modifying the security settings on your devices, " + 
-                "it often bundles itself with legitimate software or Trojan horses"
+                        "it often bundles itself with legitimate software or Trojan horses"
         ));
 
         responses.put("adware", List.of(
-
+                "Adware is often installed with versions of software and " + 
+                        "is designed to automatically deliver ads to a user", 
+                "Most adware are found on web browsers, and it is hard to ignore " +
+                        "when faced with constant pop up ads on your screen",
+                "It is common for adware to come with spyware"
         ));
 
         responses.put("backdoor", List.of(
-
+                "This malware is used to gain unauthorised access by bypassing the normal " +
+                        "authentication procedures to access a system",
+                "Hackers gain remote access to resources within an application and issue remote system commands", 
+                "A backdoor malware works in the background and is difficult to detect"
         ));
 
         responses.put("scareware", List.of(
-
+                "This is a type of malware that uses 'scare' tactics to trick you into taking a specific action.",
+                "Scareware mainly consists of OS style windows that pop up to warn you that your system is at risk " +
+                        "and needs to run a specific program for it to return to normal operation."
         ));
 
         responses.put("rootkit", List.of(
-
+                "This malware is designed to modify the OS to create a backdoor, which attackers can then use to access your computer remotely",
+                "Rootkits take advantage of software vulnerabilities to gain access to resources that normally shouldn't be accessible and modify system files",
+                "Rootkits can also modify system forensics and monitoring tools, making them very hard to detect",
+                "In most cases, a computer infected by a rootkit has to be wiped and any required software reinstalled."
         ));
 
         responses.put("virus", List.of(
-
+                "A virus is a type of computer program that, when executed, replicates and attaches itself to other executable files, such as a document, by inserting its own code",
+                "Most viruses require end-user interaction to initiate activation and can be written to act on a specific date or time.",
+                "Viruses can be relatively harmless, such as those that display a funny image. " + 
+                "Or they can be destructive, such as those that modify or delete data.",
+                "Viruses can also be programmed to mutate in order to avoid detection.",
+                "Most viruses are spread by USB drives, optical disks, network shares or email."
         ));
 
         responses.put("trojan horse", List.of(
-
+                "Trojan horse malware carries out malicious operations by masking its true intent.",
+                "A Trojan horse might appear legitimate but is, in fact, very dangerous.",
+                "Trojans exploit your user privileges and are most often found in image files, audio files or games.",
+                "Unlike viruses, Trojans do not self-replicate but act as a decoy to sneak malicious software past unsuspecting users."
         ));
 
         responses.put("worms", List.of(
-
+                "This is a type of malware that replicates itself in order to spread from one computer to another. ",
+                "Unlike a virus, which requires a host program to run, worms can run by themselves.",
+                "Other than the initial infection of the host, worms do not require user participation and can spread very quickly over the network.",
+                "Worms share similar patterns:" +
+                "They exploit system vulnerabilities, they have a way to propagate themselves" +
+                "and they all contain malicious code (payload) to cause damage to computer systems or networks.",
+                "Worms are responsible for some of the most devastating attacks on the Internet."
         ));
-    }
+
+        responses.put("DoS", List.of(
+                "Denial-of-Service (DoS) attacks are a type of network attack that is relatively simple to carry out, even by an unskilled attacker.",
+                " A DoS attack results in some sort of interruption of network service to users, devices or applications.",
+                "DoS attacks are considered a major risk because they can easily interrupt communication and cause significant loss of time and money."
+        ));
+
+        responses.put("DDoS", List.of(
+                "A Distributed Denial of Service (DDoS) attack is similar to a DoS attack but originates from multiple, coordinated sources",
+                "An attacker builds a network (botnet) of infected hosts called zombies, which are controlled by handler systems." +
+                "The zombie computers will constantly scan and infect more hosts, creating more and more zombies." + 
+                "When ready, the hacker will instruct the handler systems to make the botnet of zombies carry out a DDoS attack."
+        ));
+
+        responses.put("Botnet", List.of(
+                "A bot computer is typically infected by visiting an unsafe website or opening an infected email attachment or infected media file.",
+                "A botnet is a group of bots, connected through the Internet, that can be controlled by a malicious individual or group.",
+                "Bot can have tens of thousands, or even hundreds of thousands, of bots that are typically controlled through a command and control server.",
+                "Bots can be activated to distribute malware, launch DDoS attacks, distribute spam email, or execute brute-force password attacks.",
+                "Cybercriminals will often rent out botnets to third parties for nefarious purposes."
+        ));
+
+        responses.put("on path attacks", List.of(
+                "On-path attackers intercept or modify communications between two devices, " +
+                "such as a web browser and a web server, " + "either to collect information from or to impersonate one of the devices.",
+                "This type of attack is also referred to as a man-in-the-middle or man-in-the-mobile attack.",
+                "A man in the middle (MitM) attack happens when a cybercriminal takes control of a device without the user's knowledge",
+                "With MitM level of access, an attacker can intercept and capture user information before it is sent to is intended destination",
+                "MitM attacks are often used to steal financial information",
+                "A man in the mobile (MitMo) attack is used to take control over a user's mobile device.",
+                "With MitMo attack, the mobile device is instructed to exfiltrate user sensitive information and send it to attackers",
+                "ZeuS is one example of a malware package with MitMo capabilities",
+                "ZeuS allows attackes to quietly capture two step verification SMS messages that are sent to users"
+        ));
+
+        responses.put("seo poisoning", List.of(
+                "Search engine optimisation (SEO) is about improving an organisaton's website so that it gains greater visibility in search engine results",
+                "Attackers take advantage of popular search terms and use SEO to push malicious sites higher up the ranks of search results.",
+                "The most common goal of SEO posioning is to increase traffic to malicious sites that may host malware or attempt social engineering"
+        ));
+
+        responses.put("wifi password cracking", List.of(
+                ""
+        ));
+
+        responses.put("password attacks", List.of());
+
+        responses.put("cracking times", List.of(
+                // Look into Ophcrack, L0phtCrack, THC Hydra, RainbowCrack, Medusa
+        ));
+
+        responses.put("advanced persistent threats", List.of());
+
+        responses.put("", List.of());
+
+        responses.put("", List.of());
+
+        
+}
 
 }
