@@ -1,11 +1,11 @@
 package com.cyberchatbot.chatbot;
 
-import com.cyberchatbot.ui.VoiceGreeter;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+
+import com.cyberchatbot.ui.VoiceGreeter;
 
 public class ResponseEngine {
 
@@ -59,7 +59,7 @@ public class ResponseEngine {
                         "Be suspicious of emails that feel unusually personal from unknown senders."
         ));
 
-        responses.put("password",List.of(
+        responses.put("password", List.of(
                 "Use at least 12 characters mixing uppercase, lowercase, numbers, and symbols. " +
                         "Longer is stronger — a 20-character passphrase beats a complex 8-character password.",
                 "Never reuse passwords across sites. If one service is breached, attackers " +
@@ -70,7 +70,7 @@ public class ResponseEngine {
                         "are the first things attackers try in targeted attacks."
         ));
 
-        responses.put("malware",List.of(
+        responses.put("malware", List.of(
                 "Malware is any software designed to harm your system. Keep your OS and antivirus " +
                         "updated — most infections exploit known vulnerabilities that patches already fix.",
                 "Never download software from unofficial sources. Cracked software and free " +
@@ -78,7 +78,9 @@ public class ResponseEngine {
                 "If your computer suddenly slows down, shows unexpected ads, or behaves strangely, " +
                         "run a full antivirus scan immediately — these are classic malware symptoms.",
                 "Trojans disguise themselves as legitimate software. Only install applications " +
-                        "from official app stores or the developer's own verified website."
+                        "from official app stores or the developer's own verified website.",
+                "Malware is any code that can be used to steal data, bypass access controls, or cause harm to or compromise a system."
+
         ));
 
         responses.put("2fa", List.of(
@@ -92,7 +94,7 @@ public class ResponseEngine {
                         "and are completely phishing-resistant."
         ));
 
-        responses.put("two factor",List.of(
+        responses.put("two factor", List.of(
                 "Two-factor authentication requires something you know (password) plus " +
                         "something you have (phone or key). Both must be present to log in.",
                 "Setting up 2FA takes under two minutes on most platforms. " +
@@ -101,7 +103,7 @@ public class ResponseEngine {
                         "if you lose your phone without them, you can be locked out permanently."
         ));
 
-        responses.put("vpn",List.of(
+        responses.put("vpn", List.of(
                 "A VPN encrypts all traffic between your device and the internet, " +
                         "preventing your ISP and network observers from seeing what you're doing.",
                 "On public Wi-Fi, a VPN stops attackers on the same network from " +
@@ -112,7 +114,7 @@ public class ResponseEngine {
                         "Websites can still identify you through cookies and browser fingerprinting."
         ));
 
-        responses.put("wifi",List.of(
+        responses.put("wifi", List.of(
                 "Public Wi-Fi is unencrypted by default. Anyone on the same network " +
                         "can potentially see your unencrypted traffic with basic tools.",
                 "Avoid accessing banking or email on public Wi-Fi. " +
@@ -123,7 +125,7 @@ public class ResponseEngine {
                         "Always confirm the official network name with staff before connecting."
         ));
 
-        responses.put("social engineering",List.of(
+        responses.put("social engineering", List.of(
                 "Social engineering manipulates people rather than systems. " +
                         "Attackers exploit trust, authority, and urgency to bypass technical defences.",
                 "Be suspicious of any unsolicited request for credentials, access, or money — " +
@@ -134,7 +136,7 @@ public class ResponseEngine {
                         "Never hold doors open for people you don't recognise, even if they look official."
         ));
 
-        responses.put("update",List.of(
+        responses.put("update", List.of(
                 "Software updates patch known security vulnerabilities. " +
                         "Attackers actively scan for unpatched systems within hours of a CVE being published.",
                 "Enable automatic updates for your OS, browser, and apps. " +
@@ -145,7 +147,7 @@ public class ResponseEngine {
                         "yet run constantly and have direct access to all your network traffic."
         ));
 
-        responses.put("ransomware",List.of(
+        responses.put("ransomware", List.of(
                 "Ransomware encrypts your files and demands payment for the decryption key. " +
                         "Paying does not guarantee recovery and funds future attacks.",
                 "The best defence against ransomware is offline backups. " +
@@ -156,7 +158,7 @@ public class ResponseEngine {
                         "or Office files that ask you to enable macros."
         ));
 
-        responses.put("backup",List.of(
+        responses.put("backup", List.of(
                 "Follow the 3-2-1 rule: 3 copies of your data, on 2 different media types, " +
                         "with 1 stored offsite or offline. This survives hardware failure, theft, and ransomware.",
                 "Cloud backup is convenient but not sufficient alone — ransomware can encrypt " +
@@ -167,7 +169,7 @@ public class ResponseEngine {
                         "set a schedule and let the software handle it."
         ));
 
-        responses.put("firewall",List.of(
+        responses.put("firewall", List.of(
                 "A firewall monitors incoming and outgoing traffic and blocks connections " +
                         "that don't match your security rules. Keep your OS firewall enabled at all times.",
                 "Home routers include a basic NAT firewall that hides your devices from " +
@@ -176,6 +178,42 @@ public class ResponseEngine {
                         "They can block malware that uses allowed ports like 80 and 443 to phone home.",
                 "Review your firewall rules periodically. Old rules for software you've uninstalled " +
                         "can leave unnecessary ports open."
+        ));
+        
+        responses.put("spyware", List.of(
+                "Spyware is designed to track and spy on you, it often monitors your online activity",
+                "Spyware can log every key you press on your keyboard, as well as capture almost any of your data",
+                "Data often stolen by spyware include, sensitive personal information, online banking details, even your identity",
+                "Spyware is operated by modifying the security settings on your devices, " + 
+                "it often bundles itself with legitimate software or Trojan horses"
+        ));
+
+        responses.put("adware", List.of(
+
+        ));
+
+        responses.put("backdoor", List.of(
+
+        ));
+
+        responses.put("scareware", List.of(
+
+        ));
+
+        responses.put("rootkit", List.of(
+
+        ));
+
+        responses.put("virus", List.of(
+
+        ));
+
+        responses.put("trojan horse", List.of(
+
+        ));
+
+        responses.put("worms", List.of(
+
         ));
     }
 
