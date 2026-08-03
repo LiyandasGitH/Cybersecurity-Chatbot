@@ -1,6 +1,7 @@
 package com.cyberchatbot;
 
 import org.fusesource.jansi.AnsiConsole;
+import com.cyberchatbot.ai.*;
 
 import com.cyberchatbot.chatbot.*;
 import com.cyberchatbot.ui.*;
@@ -29,6 +30,10 @@ public class Main {
 
         Chatbot bot = new Chatbot();
         bot.start();
+
+        // will call askAi right here
+        AskAi.askAi();
+//        ai.AskAi.askAi()
 
     }
 }
