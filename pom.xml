@@ -36,6 +36,14 @@
             <version>2.4.1</version>
         </dependency>
 
+        <!-- Official Google Gen AI SDK for Java -->
+        <dependency>
+            <groupId>com.google.genai</groupId>
+            <artifactId>google-genai</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
