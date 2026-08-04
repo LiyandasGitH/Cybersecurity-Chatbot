@@ -32,7 +32,7 @@ public class Main {
         bot.start();
 
         // will call askAi right here
-        AskAi.askAi();
+        // AskAi.askAi();
 //        ai.AskAi.askAi()
 
     }
