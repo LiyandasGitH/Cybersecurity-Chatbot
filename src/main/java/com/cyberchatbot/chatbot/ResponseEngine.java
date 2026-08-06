@@ -153,7 +153,7 @@ public class ResponseEngine {
                         "Paying does not guarantee recovery and funds future attacks.",
                 "The best defence against ransomware is offline backups. " +
                         "If your files are backed up somewhere the ransomware can't reach, you can restore without paying.",
-                "Ransodmware most commonly enters through phishing emails with malicious attachments " +
+                "Ransomware most commonly enters through phishing emails with malicious attachments " +
                         "or through unpatched remote desktop (RDP) vulnerabilities.",
                 "Never open email attachments you weren't expecting, especially .zip, .exe, " +
                         "or Office files that ask you to enable macros."
@@ -246,7 +246,8 @@ public class ResponseEngine {
         responses.put("DoS", List.of(
                 "Denial-of-Service (DoS) attacks are a type of network attack that is relatively simple to carry out, even by an unskilled attacker.",
                 " A DoS attack results in some sort of interruption of network service to users, devices or applications.",
-                "DoS attacks are considered a major risk because they can easily interrupt communication and cause significant loss of time and money."
+                "DoS attacks are considered a major risk because they can easily interrupt communication and cause significant loss of time and money.",
+                "DDoS attacks are extremely difficult to defend against because the attacks originate from hundreds, even thousands, of zombie hosts, and the attacks appear as legitimate traffic"
         ));
 
         responses.put("DDoS", List.of(
@@ -280,7 +281,7 @@ public class ResponseEngine {
         responses.put("seo poisoning", List.of(
                 "Search engine optimisation (SEO) is about improving an organisaton's website so that it gains greater visibility in search engine results",
                 "Attackers take advantage of popular search terms and use SEO to push malicious sites higher up the ranks of search results.",
-                "The most common goal of SEO posioning is to increase traffic to malicious sites that may host malware or attempt social engineering"
+                "The most common goal of SEO poisoning is to increase traffic to malicious sites that may host malware or attempt social engineering"
         ));
 
         responses.put("wifi password cracking", List.of(
@@ -295,11 +296,27 @@ public class ResponseEngine {
 
         responses.put("advanced persistent threats", List.of());
 
-        responses.put("", List.of());
+        responses.put("intrusion detection systems", List.of(
+                "Intrusion detection systems (IDSs) and intrusion prevention systems (IPSs) are security measures deployed on a network to detect and prevent malicious activities.",
+                "An IDS can either be a dedicated network device or one of several tools in a server, firewall or even a host computer operating system, " +
+                        "that scans data against signatures, looking for malicious traffic",
+                "The job of an IDS is to detect, log and report to a network administrator",
+                "The IDS will log the detection and create an alert for a network administrator." +
+                        "It will not take action and therefore it will not prevent attacks from happening",
+                "To prevent network delay (known as latency), an IDS is usually placed offline, separate from the regular network traffic"
+        ));
 
-        responses.put("", List.of());
+        responses.put("ips", List.of(
+                "Intrusion prevention systems (IPSs) and intrusion detection systems (IDSs) are security measures deployed on a network to detect and prevent malicious activities.",
+                "An IPS can block or deny traffic based on a positive rule or signature match"
+        ));
 
-        
+        responses.put("penetration testing", List.of(
+                "Pen testing is the act of assessing a computer system, network or organization for security vulnerabilities",
+                "A pen test seeks to breach systems, people, processes and code to uncover vulnerabilities which could be exploited",
+                "Pen testers use gathered information to improve the system's defenses to ensure that it is better able to withstand cyber attacks in the future"
+        ));
+
 }
 
 }

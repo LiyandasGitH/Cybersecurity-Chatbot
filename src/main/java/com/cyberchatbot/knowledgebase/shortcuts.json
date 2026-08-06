@@ -1,0 +1,17 @@
+{
+  "abbreviations": {
+    "OS" :"operating system",
+    "os" : "operating systems",
+    "IDS" : "intrusion detection system",
+    "IPS" : "intrusion detection system",
+    "LAN" : "local area network",
+    "SEO" : "search engine optimisation",
+    "MitM" : "man in the middle",
+    "MitMo" : "man in the mobile",
+    "DoS" : "denial of service",
+    "DDoS" : "distributed denial of service",
+    "APT" : "advanced persistent threats",
+    "lsof" : "list of open files",
+    "PID" : "process id"
+    }
+}
