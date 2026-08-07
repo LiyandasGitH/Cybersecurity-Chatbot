@@ -12,6 +12,12 @@
     "DDoS" : "distributed denial of service",
     "APT" : "advanced persistent threats",
     "lsof" : "list of open files",
-    "PID" : "process id"
+    "PID" : "process id",
+    "SIEM" : "security information and event management",
+    "DLP" : "data loss prevention",
+    "ISE" : "identity services engine",
+    "NAT" : "network address translation",
+    "HTTPS" : "hypertext transfer protocol secure",
+    "TLS" : "transport layer security"
     }
 }

@@ -296,7 +296,7 @@ public class ResponseEngine {
 
         responses.put("advanced persistent threats", List.of());
 
-        responses.put("intrusion detection systems", List.of(
+        responses.put("ids", List.of(
                 "Intrusion detection systems (IDSs) and intrusion prevention systems (IPSs) are security measures deployed on a network to detect and prevent malicious activities.",
                 "An IDS can either be a dedicated network device or one of several tools in a server, firewall or even a host computer operating system, " +
                         "that scans data against signatures, looking for malicious traffic",
@@ -315,6 +315,18 @@ public class ResponseEngine {
                 "Pen testing is the act of assessing a computer system, network or organization for security vulnerabilities",
                 "A pen test seeks to breach systems, people, processes and code to uncover vulnerabilities which could be exploited",
                 "Pen testers use gathered information to improve the system's defenses to ensure that it is better able to withstand cyber attacks in the future"
+        ));
+
+        responses.put("siem", List.of(
+                "a security information and event management system collects and analyses security alerts, logs and other real-time and historical data from security devices on the network to facilitate early detection of cyber attacks"
+        ));
+
+        responses.put("dlp", List.of(
+                "a data loss prevention system is designed to stop sensitive data from being stolen from or escaping a network.",
+                "DLPs monitors and protects data in three different states: " +
+                        "data in use (data being accessed by a user), " +
+                        "data in motion (data travelling through the network)" +
+                        "data at rest (data stored in a computer network or device)"
         ));
 
 }
