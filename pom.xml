@@ -55,6 +55,9 @@
                 <version>3.6.3</version>
                 <configuration>
                     <mainClass>com.cyberchatbot.Main</mainClass>
+                    <arguments>
+                        <argument>--enable-native-access=ALL-UNNAMED</argument>
+                    </arguments>
                 </configuration>
             </plugin>
 

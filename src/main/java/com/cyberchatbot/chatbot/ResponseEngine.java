@@ -26,15 +26,17 @@ public class ResponseEngine {
         String botResponse = userInput.trim().toLowerCase();
 
         for (Map.Entry<String, List<String>> entry : responses.entrySet()) {
-            if (botResponse.contains(entry.getKey())) {
+                if (botResponse.contains(entry.getKey())) {
                 List<String> options = entry.getValue();
 
                 String selectedReply = options.get(random.nextInt(options.size()));
 
-                VoiceGreeter.speakAsync(selectedReply);
+                String cleanAudio = selectedReply.replaceAll("[\\n\\r\\t]", " ").replaceAll("\\s+", " ");
+
+                VoiceGreeter.speakAsync(cleanAudio);
 
                 return selectedReply;
-            }
+                }
         }
 
         String defaultReply = "I don't have specific information on that topic yet. Try asking about: " +
