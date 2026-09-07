@@ -139,8 +139,7 @@ public class Chatbot {
     }
 
     private void chatWithBot() {
-        boolean isActive = true;
-        while (isActive) {
+        while (true) {
             ConsoleUI.printPrompt();
 
             String userInput = scanner.nextLine();
