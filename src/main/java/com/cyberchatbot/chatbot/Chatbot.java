@@ -4,6 +4,7 @@ import com.cyberchatbot.ui.ConsoleUI;
 import com.cyberchatbot.ui.VoiceGreeter;
 
 import java.io.PrintStream;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class Chatbot {
@@ -185,10 +186,12 @@ public class Chatbot {
                 break;
             }
 
-            else {
-                String botAnswer = responseEngine.getResponse(userInput);
-                ConsoleUI.printBotResponse(botAnswer);
-            }
+
+//            Optional<String> botAnswer = Optional.of(responseEngine.getResponse(userInput));
+
+            String botAnswer = responseEngine.getResponse(userInput);
+            ConsoleUI.printBotResponse(botAnswer);
+
         }
     }
 
