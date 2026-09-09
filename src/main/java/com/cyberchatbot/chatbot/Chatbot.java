@@ -187,9 +187,9 @@ public class Chatbot {
             }
 
 
-//            Optional<String> botAnswer = Optional.of(responseEngine.getResponse(userInput));
-
-            String botAnswer = responseEngine.getResponse(userInput);
+            // chatbot orders information from the response engine given input
+            TheBox takeBox = responseEngine.getResponse(userInput);
+            String botAnswer = takeBox.answer();
             ConsoleUI.printBotResponse(botAnswer);
 
         }
@@ -214,6 +214,10 @@ public class Chatbot {
         String goodbyeMsg = "Goodbye " + nameGotten + "! Stay safe online!";
         ConsoleUI.printBotResponse(goodbyeMsg);
         VoiceGreeter.speakClosing(goodbyeMsg);
+    }
+
+    public void checkWithAiIfIsMeaningless() {
+        
     }
 
 }

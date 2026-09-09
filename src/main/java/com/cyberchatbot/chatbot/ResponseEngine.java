@@ -21,8 +21,8 @@ public class ResponseEngine {
     public int getTopicCount() {
         return responses.size();
     }
-
-    public String getResponse(String userInput) {
+    // where an order is made from & for the chatbot
+    public TheBox getResponse(String userInput) {
         String botResponse = userInput.trim().toLowerCase();
 
         for (Map.Entry<String, List<String>> entry : responses.entrySet()) {
@@ -31,9 +31,14 @@ public class ResponseEngine {
 
                 String selectedReply = options.get(random.nextInt(options.size()));
 
+                // packing into the box 
+                TheBox theBox = new TheBox(true, selectedReply);
+
                 VoiceGreeter.speakAsync(selectedReply);
 
-                return selectedReply;
+                // gives the chatbot the box w/ answer inside
+                return theBox;
+
             }
         }
 
