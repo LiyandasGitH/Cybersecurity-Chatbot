@@ -167,14 +167,19 @@ public class Chatbot {
                 continue;
             }
 
-            if (userInput.matches("\\d+")) {
-                String digitError = "I only work with text based questions!\n";
-                ConsoleUI.printError(digitError);
-                VoiceGreeter.speakClosing(digitError);
-                helpCentre();
-
+            if(userInput.matches("\\d+")) {
+                digitInput();
                 continue;
             }
+
+            // if (userInput.matches("\\d+")) {
+            //     String digitError = "I only work with text based questions!\n";
+            //     ConsoleUI.printError(digitError);
+            //     VoiceGreeter.speakClosing(digitError);
+            //     helpCentre();
+
+            //     continue;
+            // }
 
             if (userInput.equalsIgnoreCase("help")) {
                 helpCentre();
@@ -218,6 +223,17 @@ public class Chatbot {
 
     public void checkWithAiIfIsMeaningless() {
         
+    }
+
+    public void digitInput(String digit) {
+        if (digit.matches("\\d+")) {
+                String digitError = "I only work with text based questions!\n";
+                ConsoleUI.printError(digitError);
+                VoiceGreeter.speakClosing(digitError);
+                helpCentre();
+
+                continue;
+            }
     }
 
 }
