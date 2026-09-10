@@ -4,18 +4,13 @@ import java.util.Scanner;
 import com.google.genai.Client;
 import com.google.genai.types.GenerateContentResponse;
 
+// should only process data, should be concerned with question and answer
+
 public class AskAi {
-    private AskAi() {
+    public AskAi() {
     }
 
-    public static void askAi() {
-        String question = "";
-        try (Scanner scanner = new Scanner(System.in)) {
-            while (question.isEmpty()) {
-                System.out.println("What would you like to know?");
-                question = scanner.nextLine();
-            }
-        }
+    public static String askAi(String question) {
 
         try (Client client = Client.builder()
                 .apiKey(System.getenv("API_KEY"))
@@ -26,10 +21,12 @@ public class AskAi {
                     question,
                     null
             );
+            System.out.println(System.getenv("API_KEY"));
 
-            System.out.println(response.text());
+            return response.text();
+
         } catch (Exception e) {
-            System.out.println("Error communicating with Chatbot: " + e.getMessage());
+           return "Error communicating with Chatbot: " + e.getMessage();
         }
     }
 }

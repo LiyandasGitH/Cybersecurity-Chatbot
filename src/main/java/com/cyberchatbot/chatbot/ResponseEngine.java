@@ -46,9 +46,11 @@ public class ResponseEngine {
                 "phishing, passwords, malware, 2FA, VPNs, Wi-Fi safety, " +
                 "ransomware, backups, or firewalls.";
 
+        TheBox reply = new TheBox(false, defaultReply);
+
         VoiceGreeter.speakAsync("I don't have specific information on that topic yet. Try asking about phishing or passwords.");
 
-        return defaultReply;
+        return reply;
     }
 
 

@@ -1,5 +1,6 @@
 package com.cyberchatbot.chatbot;
 
+import com.cyberchatbot.ai.AskAi;
 import com.cyberchatbot.ui.ConsoleUI;
 import com.cyberchatbot.ui.VoiceGreeter;
 
@@ -167,19 +168,18 @@ public class Chatbot {
                 continue;
             }
 
-            if(userInput.matches("\\d+")) {
-                digitInput();
-                continue;
-            }
+//            if(userInput.digitInput()) {
+//                continue;
+//            }
 
-            // if (userInput.matches("\\d+")) {
-            //     String digitError = "I only work with text based questions!\n";
-            //     ConsoleUI.printError(digitError);
-            //     VoiceGreeter.speakClosing(digitError);
-            //     helpCentre();
+             if (userInput.matches("\\d+")) {
+                 String digitError = "I only work with text based questions!\n";
+                 ConsoleUI.printError(digitError);
+                 VoiceGreeter.speakClosing(digitError);
+                 helpCentre();
 
-            //     continue;
-            // }
+                 continue;
+             }
 
             if (userInput.equalsIgnoreCase("help")) {
                 helpCentre();
@@ -196,6 +196,9 @@ public class Chatbot {
             TheBox takeBox = responseEngine.getResponse(userInput);
             String botAnswer = takeBox.answer();
             ConsoleUI.printBotResponse(botAnswer);
+
+            // calling the ai delivery man to give answer if found answer is meaningless
+            checkWithAiIfIsMeaningless(takeBox, userInput);
 
         }
     }
@@ -221,19 +224,26 @@ public class Chatbot {
         VoiceGreeter.speakClosing(goodbyeMsg);
     }
 
-    public void checkWithAiIfIsMeaningless() {
-        
+    // depends on meaninglessness of answer, and the question posed by the user
+    public void checkWithAiIfIsMeaningless(TheBox checkBox, String questionToAi) {
+        // check if there is no answer
+        // tell the ai to find the answer
+        // have the ai return the answer
+
+        // check if answer is meaningful, if its meaningful do nothing, else below:
+        if (!checkBox.isMeaningful()) {
+            String answer = AskAi.askAi(questionToAi);
+            ConsoleUI.printBotResponse(answer);
+        }
     }
 
-    public void digitInput(String digit) {
-        if (digit.matches("\\d+")) {
-                String digitError = "I only work with text based questions!\n";
-                ConsoleUI.printError(digitError);
-                VoiceGreeter.speakClosing(digitError);
-                helpCentre();
-
-                continue;
-            }
-    }
+//    public void digitInput(String digit) {
+//        if (digit.matches("\\d+")) {
+//                String digitError = "I only work with text based questions!\n";
+//                ConsoleUI.printError(digitError);
+//                VoiceGreeter.speakClosing(digitError);
+//                helpCentre();
+//            }
+//    }
 
 }
