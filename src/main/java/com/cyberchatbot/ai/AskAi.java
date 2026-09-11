@@ -1,28 +1,46 @@
 package com.cyberchatbot.ai;
 
-import java.util.Scanner;
 import com.google.genai.Client;
+import com.google.genai.types.Content;
+import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
+import com.google.genai.types.Part;
+import java.util.List;
 
 // should only process data, should be concerned with question and answer
 
 public class AskAi {
+    public static final String MASTER_PROMPT = """
+            You are a knowledgeable, friendly, and concise Cyber Security Awareness Assistant.
+            Your job is to educate users on best security practices, safe browsing, password hygiene,
+            phishing prevention, and general threat mitigation.
+            Keep explanations accessible to beginners, practical, and action-oriented.
+            Do not provide functional exploit code, malware scripts, or assist in unauthorized attacks.
+            """;
     public AskAi() {
     }
 
     public static String askAi(String question) {
 
+        String apiKey = System.getenv("API_KEY");
+        if (apiKey == null || apiKey.isBlank()) {
+            return "Error: API_KEY environment variable is not set.";
+        }
+
         try (Client client = Client.builder()
-                .apiKey(System.getenv("API_KEY"))
+                .apiKey(apiKey)
                 .build()) {
 
+            GenerateContentConfig config = GenerateContentConfig.builder()
+                    .systemInstruction(Content.builder()
+                            .parts(List.of(Part.fromText(MASTER_PROMPT)))
+                            .build())
+                    .build();
             GenerateContentResponse response = client.models.generateContent(
-                    "gemini-2.0-flash",
+                    "gemini-3.6-flash",
                     question,
-                    null
+                    config
             );
-            System.out.println(System.getenv("API_KEY"));
-
             return response.text();
 
         } catch (Exception e) {
