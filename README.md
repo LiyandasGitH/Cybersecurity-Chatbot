@@ -29,31 +29,43 @@ threats through conversational interaction.
 ## Project Structure 
 
 ```text
-cybersecurity-chatbot/
-├── LICENSE
-├── README.md
+
+Cyber-Security-Awareness-Chatbot/
+├── .env
 ├── .gitignore
+├── .stcript.sh
+├── knowledge.txt
+├── LICENSE
 ├── pom.xml
-└── src/
-    ├── main/
-    │   └── java/
-    │       └── com/
-    │           └── cyberchatbot/
-    │               ├── Main.java
-    │               ├── ChatBot.java
-    │               ├── ResponseEngine.java
-    │               ├── ConsoleUI.java
-    │               └── VoiceGreeter.java
-    │
-    └── test/
-        └── java/
-            └── com/
-                └── cyberchatbot/
-                    ├── MainTest.java
-                    ├── ChatBotTest.java
-                    ├── ResponseEngineTest.java
-                    ├── ConsoleUITest.java
-                    └── VoiceGreeterTest.java
+├── README.md
+├── .idea/
+├── .mvn/
+├── .vscode/
+├── src/
+│   ├── main/
+│   │   ├── java/com/cyberchatbot/
+│   │   │   ├── Main.java
+│   │   │   ├── ai/
+│   │   │   │   └── AskAi.java
+│   │   │   ├── chatbot/
+│   │   │   │   ├── Chatbot.java
+│   │   │   │   ├── ResponseEngine.java
+│   │   │   │   ├── TheBox.java
+│   │   │   │   └── User.java
+│   │   │   ├── knowledgebase/
+│   │   │   │   └── shortcuts.json
+│   │   │   └── ui/
+│   │   │       ├── ConsoleUI.java
+│   │   │       └── VoiceGreeter.java
+│   │   └── resources/
+│   └── test/java/com/cyberchatbot/
+│       ├── chatbot/
+│       │   ├── ChatbotTest.java
+│       │   └── ResponseEngineTest.java
+│       └── ui/
+│           ├── ConsoleUITest.java
+│           └── VoiceGreeterTest.java
+└── target/
 ```
 
 ## Features
