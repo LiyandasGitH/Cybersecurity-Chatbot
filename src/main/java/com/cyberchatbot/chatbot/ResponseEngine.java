@@ -42,13 +42,11 @@ public class ResponseEngine {
             }
         }
 
-        String defaultReply = "I don't have specific information on that topic yet. Try asking about: " +
-                "phishing, passwords, malware, 2FA, VPNs, Wi-Fi safety, " +
-                "ransomware, backups, or firewalls.";
+        String defaultReply = "I don't have specific information on that topic yet. Let me go look for it: ";
 
         TheBox reply = new TheBox(false, defaultReply);
 
-        VoiceGreeter.speakAsync("I don't have specific information on that topic yet. Try asking about phishing or passwords.");
+        VoiceGreeter.speakAsync("I don't have specific information on that topic yet. Let me go look for it.");
 
         return reply;
     }
@@ -286,7 +284,7 @@ public class ResponseEngine {
         ));
 
         responses.put("seo poisoning", List.of(
-                "Search engine optimisation (SEO) is about improving an organisaton's website so that it gains greater visibility in search engine results",
+                "Search engine optimisation (SEO) is about improving an organisation's website so that it gains greater visibility in search engine results",
                 "Attackers take advantage of popular search terms and use SEO to push malicious sites higher up the ranks of search results.",
                 "The most common goal of SEO poisoning is to increase traffic to malicious sites that may host malware or attempt social engineering"
         ));

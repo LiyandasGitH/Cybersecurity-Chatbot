@@ -222,6 +222,7 @@ public class Chatbot {
         String goodbyeMsg = "Goodbye " + nameGotten + "! Stay safe online!";
         ConsoleUI.printBotResponse(goodbyeMsg);
         VoiceGreeter.speakClosing(goodbyeMsg);
+        VoiceGreeter.closeAudioSubsystem();
     }
 
     // depends on meaninglessness of answer, and the question posed by the user

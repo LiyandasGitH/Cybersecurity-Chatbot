@@ -4,6 +4,9 @@ package com.cyberchatbot.ui;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Line;
+import javax.sound.sampled.Mixer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -128,6 +131,22 @@ public class VoiceGreeter {
                     voice.voice.deallocate();
                 }
             }
+        }
+    }
+
+    public static void closeAudioSubsystem() {
+        try {
+            // Find open lines and close them to allow the dispatcher thread to exit
+            for (Mixer.Info mixerInfo : AudioSystem.getMixerInfo()) {
+                Mixer mixer = AudioSystem.getMixer(mixerInfo);
+                for (Line line : mixer.getSourceLines()) {
+                    if (line.isOpen()) {
+                        line.close();
+                    }
+                }
+            }
+        } catch (Exception ignored) {
+            // Safe suppression on exit
         }
     }
 

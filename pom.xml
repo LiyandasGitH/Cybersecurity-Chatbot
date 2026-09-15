@@ -6,7 +6,7 @@
 
     <groupId>com.cyberchatbot</groupId>
     <artifactId>Cyber-Security-Awareness-Chatbot</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>2.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -29,7 +29,7 @@
             <scope>test</scope>
         </dependency>
 
-<!--    future Windows terminal support    -->
+        <!-- Windows terminal support & ANSI formatting -->
         <dependency>
             <groupId>org.fusesource.jansi</groupId>
             <artifactId>jansi</artifactId>
@@ -55,6 +55,14 @@
                 <version>3.6.3</version>
                 <configuration>
                     <mainClass>com.cyberchatbot.Main</mainClass>
+                    <!-- Configuration for: mvn exec:exec -->
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>--enable-native-access=ALL-UNNAMED</argument>
+                        <argument>-classpath</argument>
+                        <classpath/>
+                        <argument>com.cyberchatbot.Main</argument>
+                    </arguments>
                 </configuration>
             </plugin>
 
@@ -64,6 +72,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.12.1</version>
             </plugin>
+
         </plugins>
 
     </build>
