@@ -33,7 +33,7 @@ threats through conversational interaction.
 Cyber-Security-Awareness-Chatbot/
 ├── .env
 ├── .gitignore
-├── .stcript.sh
+├── .script.sh
 ├── knowledge.txt
 ├── LICENSE
 ├── pom.xml
@@ -93,7 +93,11 @@ Cyber-Security-Awareness-Chatbot/
 ## Application Execution 
 
 ```text
-mvn compile exec:exec -Dexec.mainClass="com.cyberchatbot.Main"
+mvn compile exec:java -Dexec.mainClass="com.cyberchatbot.Main"
+```
+OR 
+```text
+mvn clean compile exec:java -Dexec.vmArgs="--enable-native-access=ALL-UNNAMED"
 ```
 
 ## Running the Tests

@@ -55,14 +55,6 @@
                 <version>3.6.3</version>
                 <configuration>
                     <mainClass>com.cyberchatbot.Main</mainClass>
-                    <!-- Configuration for: mvn exec:exec -->
-                    <executable>java</executable>
-                    <arguments>
-                        <argument>--enable-native-access=ALL-UNNAMED</argument>
-                        <argument>-classpath</argument>
-                        <classpath/>
-                        <argument>com.cyberchatbot.Main</argument>
-                    </arguments>
                 </configuration>
             </plugin>
 
