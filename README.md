@@ -93,7 +93,7 @@ Cyber-Security-Awareness-Chatbot/
 ## Application Execution 
 
 ```text
-mvn compile exec:java -Dexec.mainClass="com.cyberchatbot.Main"
+mvn compile exec:exec -Dexec.mainClass="com.cyberchatbot.Main"
 ```
 
 ## Running the Tests
