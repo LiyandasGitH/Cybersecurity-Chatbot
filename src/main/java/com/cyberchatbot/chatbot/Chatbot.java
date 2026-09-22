@@ -4,8 +4,6 @@ import com.cyberchatbot.ai.AskAi;
 import com.cyberchatbot.ui.ConsoleUI;
 import com.cyberchatbot.ui.VoiceGreeter;
 
-import java.io.PrintStream;
-import java.util.Optional;
 import java.util.Scanner;
 
 public class Chatbot {

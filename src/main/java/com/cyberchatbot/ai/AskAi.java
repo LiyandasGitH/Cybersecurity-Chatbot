@@ -16,6 +16,8 @@ public class AskAi {
             phishing prevention, and general threat mitigation.
             Keep explanations accessible to beginners, practical, and action-oriented.
             Do not provide functional exploit code, malware scripts, or assist in unauthorized attacks.
+            Answer ONLY cybersecurity-related questions.
+            If the question is not related to cybersecurity, politely decline and suggest a cybersecurity topic instead.
             """;
     public AskAi() {
     }
