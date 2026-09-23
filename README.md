@@ -69,6 +69,7 @@ Cyber-Security-Awareness-Chatbot/
 │   │   │   │   └── shortcuts.json
 │   │   │   └── ui/
 │   │   │       ├── ConsoleUI.java
+                ├── HelpCentre.java
 │   │   │       └── VoiceGreeter.java
 │   │   └── resources/
 │   └── test/java/com/cyberchatbot/

@@ -2,6 +2,7 @@ package com.cyberchatbot.chatbot;
 
 import com.cyberchatbot.ai.AskAi;
 import com.cyberchatbot.ui.ConsoleUI;
+import com.cyberchatbot.ui.HelpCentre;
 import com.cyberchatbot.ui.VoiceGreeter;
 
 import java.util.Scanner;
@@ -41,16 +42,6 @@ public class Chatbot {
         String audioScript = talking + helpMsg + exitMsg;
         VoiceGreeter.speakClosing(audioScript);
 
-    }
-
-    private static void helpCentre() {
-        /**
-         * Display all the cybersecurity options available to the user
-         */
-        String suggestionMsg = "Try asking about: phishing, passwords, malware, 2FA, " +
-                "VPNs, Wi-Fi, ransomware, backups, or firewalls.";
-        ConsoleUI.printBotResponse(suggestionMsg);
-        VoiceGreeter.speakAsync(suggestionMsg);
     }
 
     private boolean fetchUserName() {
@@ -153,7 +144,7 @@ public class Chatbot {
                 String questionError = "Please type a valid question or topic.\n";
                 ConsoleUI.printError(questionError);
                 VoiceGreeter.speakClosing(questionError);
-                helpCentre();
+                HelpCentre.display();
 
                 continue;
             }
@@ -174,13 +165,13 @@ public class Chatbot {
                  String digitError = "I only work with text based questions!\n";
                  ConsoleUI.printError(digitError);
                  VoiceGreeter.speakClosing(digitError);
-                 helpCentre();
+                 HelpCentre.display();
 
                  continue;
              }
 
             if (userInput.equalsIgnoreCase("help")) {
-                helpCentre();
+                HelpCentre.display();
                 continue;
             }
 
@@ -236,13 +227,5 @@ public class Chatbot {
         }
     }
 
-//    public void digitInput(String digit) {
-//        if (digit.matches("\\d+")) {
-//                String digitError = "I only work with text based questions!\n";
-//                ConsoleUI.printError(digitError);
-//                VoiceGreeter.speakClosing(digitError);
-//                helpCentre();
-//            }
-//    }
 
 }
