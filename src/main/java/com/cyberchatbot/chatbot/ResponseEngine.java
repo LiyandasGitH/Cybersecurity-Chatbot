@@ -293,13 +293,35 @@ public class ResponseEngine {
                 ""
         ));
 
-        responses.put("password attacks", List.of());
+        responses.put("password attacks", List.of(
+                ""
+        ));
+
+        responses.put("security vulnerabilities", List.of(
+                "Security vulnerabilities are any kind of software or hardware defect.",
+                "A program written to take advantage of a known vulnerability is referred to as an exploit.",
+                "A cybercriminal can use an exploit against a vulnerability to carry out an attack, the goal of which is to gain access to a system, the data it hosts or a specific resource.",
+                "Software vulnerabilities are usually introduced by errors in the operating system or application code."
+        ));
+
+        responses.put("hardware vulnerabilities", List.of(
+                "Hardware vulnerabilities are most often the result of hardware design flaws." +
+                        "For example, the type of memory called RAM basically consists of lots of capacitors (a component which can hold an electrical charge) installed very close to one another.",
+                "Hardware vulnerabilities are specific to device models and are not generally exploited through random compromising attempts.",
+                "    While hardware exploits are more common in highly targeted attacks, traditional malware protection and good physical security are sufficient protection for the everyday user."
+        ));
 
         responses.put("cracking times", List.of(
                 // Look into Ophcrack, L0phtCrack, THC Hydra, RainbowCrack, Medusa
+                ""
         ));
 
-        responses.put("advanced persistent threats", List.of());
+        responses.put("advanced persistent threats", List.of(
+                "Attackers also achieve infiltration through advanced persistent threats (APTs) — a multi-phase, long term, stealthy and advanced operation against a specific target." +
+                        "For these reasons, an individual attacker often lacks the skill set, resources or persistence to perform APTs.",
+                "Due to the complexity and the skill level required to carry out such an attack, an APT is usually well-funded and typically targets organizations or nations for business or political reasons.",
+                "Its main purpose is to deploy customised malware on one or more of the target’s systems and remain there undetected."
+        ));
 
         responses.put("ids", List.of(
                 "Intrusion detection systems (IDSs) and intrusion prevention systems (IPSs) are security measures deployed on a network to detect and prevent malicious activities.",

@@ -5,6 +5,8 @@ import com.google.genai.types.Content;
 import com.google.genai.types.GenerateContentConfig;
 import com.google.genai.types.GenerateContentResponse;
 import com.google.genai.types.Part;
+import io.github.cdimascio.dotenv.Dotenv;
+
 import java.util.List;
 
 // should only process data, should be concerned with question and answer
@@ -24,7 +26,8 @@ public class AskAi {
 
     public static String askAi(String question) {
 
-        String apiKey = System.getenv("API_KEY");
+        Dotenv dotenv = Dotenv.load();
+        String apiKey = dotenv.get("API_KEY");
         if (apiKey == null || apiKey.isBlank()) {
             return "Error: API_KEY environment variable is not set.";
         }
