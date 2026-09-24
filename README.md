@@ -1,12 +1,5 @@
 # Cybersecurity Awareness Chatbot
 
-## Stack
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Java Version](https://img.shields.io/badge/Java-11%2B-orange.svg)](https://www.oracle.com/java/)
-[![Build Tool](https://img.shields.io/badge/Maven-3.6%2B-red.svg)](https://maven.apache.org/)
-[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?logo=googlegemini&logoColor=white)](https://ai.google.dev/)
-[![FreeTTS](https://img.shields.io/badge/Audio-FreeTTS-1DB954.svg)](#)
-
 ## Executive Summary
 
 The Cybersecurity Awareness Chatbot is an interactive, Java-based console application designed to bridge the gap between complex digital security concepts and everyday users.
@@ -25,6 +18,17 @@ This Generative AI implementation utilises targeted system instructions governed
 
 Additionally, the architecture incorporates defensive exception handling around the API calls; this guarantees that if a network dropout or transient HTTP error occurs, the chatbot gracefully manages the failure and falls back to its local knowledge base without crashing or exposing raw stack traces to the end user.
 
+
+## Stack
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Java Version](https://img.shields.io/badge/Java-11%2B-orange.svg)](https://www.oracle.com/java/)
+[![Build Tool](https://img.shields.io/badge/Maven-3.6%2B-red.svg)](https://maven.apache.org/)
+[![UI Style](https://img.shields.io/badge/Terminal%20UI-Jansi%202.4.1-blue?logo=gnometerminal&logoColor=white)](https://fusesource.github.io/jansi/)
+[![Audio Engine](https://img.shields.io/badge/Audio-FreeTTS%201.2.2-1DB954.svg)](#)
+[![Generative AI](https://img.shields.io/badge/Gen%20AI-Google%20Gen%20AI%20SDK%201.0.0-8E75B2?logo=googlegemini&logoColor=white)](https://ai.google.dev/)
+[![Execution Plugin](https://img.shields.io/badge/Runner-Exec%20Maven%20Plugin%203.6.3-C71A36?logo=apachemaven&logoColor=white)](https://www.mojohaus.org/exec-maven-plugin/)
+[![Testing Framework](https://img.shields.io/badge/Testing-JUnit%205.12.0-25A162?logo=junit5&logoColor=white)](https://junit.org/junit5/)
+[![Test Runner](https://img.shields.io/badge/Runner-Maven%20Surefire-red?logo=apachemaven&logoColor=white)](https://maven.apache.org/plugins/maven-surefire-plugin/)
 
 ## Project Overview 
 
@@ -51,9 +55,6 @@ Cyber-Security-Awareness-Chatbot/
 ├── LICENSE
 ├── pom.xml
 ├── README.md
-├── .idea/
-├── .mvn/
-├── .vscode/
 ├── src/
 │   ├── main/
 │   │   ├── java/com/cyberchatbot/
@@ -65,8 +66,8 @@ Cyber-Security-Awareness-Chatbot/
 │   │   │   │   ├── ResponseEngine.java
 │   │   │   │   ├── TheBox.java
 │   │   │   │   └── User.java
-│   │   │   ├── knowledgebase/
-│   │   │   │   └── shortcuts.json
+│   │   │   ├── protocols/
+│   │   │   │   └── KnowledgeBase.java
 │   │   │   └── ui/
 │   │   │       ├── ConsoleUI.java
                 ├── HelpCentre.java
@@ -84,13 +85,13 @@ Cyber-Security-Awareness-Chatbot/
 
 ## Features
 
-- ASCII art banner with ANSI colour output
-- Voice greeting on startup (FreeTTS)
-- A range of cybersecurity topics with keyword matching
-- Input validation (blank, numeric, length, exit commands)
-- Animated typing effect for responses
-- Session summary on exit
-- Help command listing all available topics
+- **ASCII Banner & Terminal Styling:** ANSI color escapes and stylized CyberBot logo with Jansi integration.
+- **Voice Synthesis:** Asynchronous startup greetings and speech synthesis powered by FreeTTS.
+- **Rich Local Knowledge Base:** A range of cybersecurity topics with multi-variant randomized answers.
+- **Dynamic Help Center:** ASCII-styled reference table categorizing supported local topics and commands.
+- **Cloud AI Fallback:** Live querying via Google Gen AI SDK (AskAi) for advanced and niche security questions.
+- **Rigorous Input Validation:** Sanitisation traps for numeric input, empty lines, string overflows, and command flags (```exit```, ```quit```, ```q```).
+
 
 ## Requirements 
 
@@ -101,14 +102,17 @@ Cyber-Security-Awareness-Chatbot/
 
 ## Installation & Running the Application
 
+1. Clone the repository.
+    - git clone **[Cyber-Security-Awareness-Chatbot](https://github.com/LiyandasGitH/Cyber-Security-Awareness-Chatbot.git)**
+    - cd Cybersecurity-Chatbot
 
-git clone [Cyber-Security-Awareness-Chatbot](https://github.com/LiyandasGitH/Cyber-Security-Awareness-Chatbot.git)
 
-cd Cyber-Security-Awareness-Chatbot
-
-
-1. **Configure your API Key:**
-    a. Create a .env file or export your Gemini API key
+2. **Configure your API Key:**
+    - Create a ```.env``` file 
+    - Or **export** your Gemini API key:
+    ```
+   export GEMINI_API_KEY="your-api-key-here"
+   ```
 
 
 ## Application Execution 
@@ -128,10 +132,9 @@ mvn clean test
 
 ## Known Limitations 
 
-- **FreeTTS Engine Warnings:** 
-- FreeTTS may produce warnings on JDK 17+; the chatbot runs correctly without
-  voice if TTS fails to initialise
-- ANSI colours do not render in legacy Windows cmd.exe without Jansi
+- **FreeTTS Engine Warnings:** FreeTTS may produce warnings on JDK 17+. 
+    - The chatbot runs correctly without voice if TTS fails to initialise.
+- **Terminal ANSI Support:** ANSI colours do not render in legacy Windows ```cmd.exe``` without Jansi.
 
 ## Topics Covered 
 
