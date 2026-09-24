@@ -109,7 +109,7 @@ public class ResponseEngineTest {
     @Test
     @DisplayName("Should load expected number of distinct topics")
     void testTopicCount() {
-        assertEquals(34, engine.getTopicCount(), "Topic map size should reflect loaded topics");
+        assertEquals(66, engine.getTopicCount(), "Topic map size should reflect loaded topics");
     }
 
     @Test
