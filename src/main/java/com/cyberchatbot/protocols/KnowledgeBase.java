@@ -2,7 +2,6 @@ package com.cyberchatbot.protocols;
 
 import com.cyberchatbot.ui.ConsoleUI;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -58,8 +57,12 @@ public class KnowledgeBase {
     /**
      * Appends a new response to a keyword, keeping keys sorted, and persists to disk.
      */
-    public synchronized void appendToKB(Map<String, List<String>> responses, String keyword, String answer) {
-        responses.computeIfAbsent(keyword, k -> new ArrayList<>()).add(answer);
+    public synchronized void appendToKB(Map<String, List<String>> responses, String keyword, List<String> answers) {
+        if (answers == null || answers.isEmpty()) {
+            return;
+        }
+
+        responses.computeIfAbsent(keyword, k -> new ArrayList<>()).addAll(answers);
 
         try {
             String json = serialise(responses);
@@ -101,14 +104,43 @@ public class KnowledgeBase {
         return sb.toString();
     }
 
+    public static List<String> sanitiseGeminiResponse(String rawGeminiText) {
+        if (rawGeminiText == null || rawGeminiText.isBlank()) {
+            return List.of();
+        }
+
+        String cleaned = rawGeminiText
+                .replace("**", "")
+                .replace("__", "")
+                .replace("`", "");
+
+        String[] lines = cleaned.split("\n+");
+        List<String> validResponses = new ArrayList<>();
+
+        for (String line : lines) {
+            String trimmed = line.trim();
+            if (trimmed.startsWith("#") || trimmed.startsWith("---") || trimmed.isBlank()) {
+                continue;
+            }
+            trimmed = trimmed.replaceFirst("^[0-9]+\\.\\s*", "").replaceFirst("^\\*\\s*", "");
+
+            if (!trimmed.isBlank()) {
+                validResponses.add(trimmed);
+            }
+        }
+
+        if (validResponses.isEmpty()) {
+            validResponses.add(cleaned.trim());
+        }
+
+        return validResponses;
+    }
+
     private void ensureWritableFile() {
         if (!Files.exists(kbPath)) {
-            try {
-                URL res = getClass().getClassLoader().getResource(KB_FILENAME);
-                if (res != null) {
-                    try (InputStream in = res.openStream()) {
-                        Files.copy(in, kbPath, StandardCopyOption.REPLACE_EXISTING);
-                    }
+            try (InputStream in = getClass().getClassLoader().getResourceAsStream(KB_FILENAME)) {
+                if (in != null) {
+                    Files.copy(in, kbPath, StandardCopyOption.REPLACE_EXISTING);
                 }
             } catch (IOException e) {
                 ConsoleUI.printError("Could not seed knowledge base: " + e.getMessage());
