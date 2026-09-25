@@ -1,0 +1,633 @@
+{
+  "topics": [
+    {
+      "keyword": "2fa",
+      "responses": [
+        "Two-factor authentication adds a second verification step beyond your password. Even if your password is stolen, attackers cannot access your account without it.",
+        "Use an authenticator app like Google Authenticator or Authy rather than SMS codes — SMS can be intercepted via SIM-swapping attacks.",
+        "Enable 2FA on every account that supports it, prioritising email, banking, and social media — these are the highest-value targets for attackers.",
+        "Hardware security keys like a YubiKey provide the strongest form of 2FA and are completely phishing-resistant."
+      ]
+    },
+    {
+      "keyword": "advanced persistent threats",
+      "responses": [
+        "Attackers also achieve infiltration through advanced persistent threats (APTs) — a multi-phase, long term, stealthy and advanced operation against a specific target.For these reasons, an individual attacker often lacks the skill set, resources or persistence to perform APTs.",
+        "Due to the complexity and the skill level required to carry out such an attack, an APT is usually well-funded and typically targets organizations or nations for business or political reasons.",
+        "Its main purpose is to deploy customised malware on one or more of the target’s systems and remain there undetected.",
+        "An advanced persistent threat is a long-lasting, targeted cyber attack."
+      ]
+    },
+    {
+      "keyword": "adware",
+      "responses": [
+        "Adware is often installed with versions of software and is designed to automatically deliver ads to a user",
+        "Most adware are found on web browsers, and it is hard to ignore when faced with constant pop up ads on your screen",
+        "It is common for adware to come with spyware",
+        "Adware shows unwanted advertisements, usually inside your web browser."
+      ]
+    },
+    {
+      "keyword": "APT",
+      "responses": [
+        "APT stands for advanced persistent threat, a long-term targeted attack.",
+        "APTs are usually carried out by well-funded and highly skilled groups.",
+        "An APT can stay hidden inside a network for months without detection.",
+        "APTs often target governments, businesses, and critical organisations."
+      ]
+    },
+    {
+      "keyword": "backdoor",
+      "responses": [
+        "This malware is used to gain unauthorised access by bypassing the normal authentication procedures to access a system",
+        "Hackers gain remote access to resources within an application and issue remote system commands",
+        "A backdoor malware works in the background and is difficult to detect",
+        "A backdoor gives attackers hidden access to a system without normal login."
+      ]
+    },
+    {
+      "keyword": "backup",
+      "responses": [
+        "Follow the 3-2-1 rule: 3 copies of your data, on 2 different media types, with 1 stored offsite or offline. This survives hardware failure, theft, and ransomware.",
+        "Cloud backup is convenient but not sufficient alone — ransomware can encrypt synced cloud folders. Keep at least one backup that is not continuously connected.",
+        "Test your backups regularly. A backup you've never restored from is a backup you don't know works.",
+        "Automate your backups. Manual backup habits always fail eventually — set a schedule and let the software handle it."
+      ]
+    },
+    {
+      "keyword": "bola",
+      "responses": [
+        "In cybersecurity, BOLA stands for Broken Object Level Authorization. It is currently the #1 threat to Web APIs on the OWASP API Security Top 10 list.",
+        "BOLA happens when an application or API lets a user access or modify data belonging to someone else simply by changing an object identifier (like an account ID or document number) in the request.",
+        "This occurs because the server checks who you are (authentication), but forgets to check if you actually own or have permission to access that specific data (authorization).",
+        "Imagine you log into your online banking account and your profile URL looks like this:",
+        "https://example.com/api/user/1001",
+        "If you change the number 1001 in the URL to 1002, and the app lets you see another person's private banking details without stopping you—that is a BOLA vulnerability.",
+        "Enforce Authorization Checks: Always verify at the code level whether the currently logged-in user has explicit permission to access the requested object ID.",
+        "Use Random Identifiers: Instead of sequential numbers (e.g., 1, 2, 3), use strong, unpredictable identifiers like UUIDs (e.g., f47ac10b-58cc-4372-a567-0e02b2c3d479).",
+        "Never Trust Client Input: Always validate authorizations on the server side, not on the user's browser or mobile device.",
+        "Test APIs Thoroughly: Test API endpoints specifically for authorization flaws by attempting to access resources across different user roles and accounts.",
+        "Would you like to learn more about API security or other common web vulnerabilities?"
+      ]
+    },
+    {
+      "keyword": "Botnet",
+      "responses": [
+        "A bot computer is typically infected by visiting an unsafe website or opening an infected email attachment or infected media file.",
+        "A botnet is a group of bots, connected through the Internet, that can be controlled by a malicious individual or group.",
+        "Bot can have tens of thousands, or even hundreds of thousands, of bots that are typically controlled through a command and control server.",
+        "Bots can be activated to distribute malware, launch DDoS attacks, distribute spam email, or execute brute-force password attacks.",
+        "Cybercriminals will often rent out botnets to third parties for nefarious purposes."
+      ]
+    },
+    {
+      "keyword": "cracking times",
+      "responses": [
+        "Cracking time is how long an attacker needs to recover a password.",
+        "Short passwords can be cracked in seconds by modern tools.",
+        "Adding more characters increases cracking time very quickly.",
+        "A long passphrase can take years or even centuries to crack.",
+        "Tools like Hashcat are often used to measure password cracking times.",
+        "Passwords stored with outdated algorithms like MD5 crack much faster."
+      ]
+    },
+    {
+      "keyword": "data loss prevention",
+      "responses": [
+        "DLP stands for data loss prevention, which stops sensitive data from leaving a network.",
+        "Data loss prevention tools monitor data in use, in motion, and at rest.",
+        "DLP blocks the unauthorised copying of confidential files.",
+        "DLP helps organisations protect customer and company secrets.",
+        "Email and USB transfers are often guarded by data loss prevention tools."
+      ]
+    },
+    {
+      "keyword": "DDoS",
+      "responses": [
+        "A Distributed Denial of Service (DDoS) attack is similar to a DoS attack but originates from multiple, coordinated sources",
+        "An attacker builds a network (botnet) of infected hosts called zombies, which are controlled by handler systems.The zombie computers will constantly scan and infect more hosts, creating more and more zombies.When ready, the hacker will instruct the handler systems to make the botnet of zombies carry out a DDoS attack.",
+        "DDoS stands for distributed denial of service.",
+        "DDoS attacks use many infected computers to overwhelm a target."
+      ]
+    },
+    {
+      "keyword": "denial of service",
+      "responses": [
+        "A denial of service attack floods a service until it becomes unavailable.",
+        "DoS attacks can shut down websites, servers, and networks.",
+        "A single machine can carry out a simple denial of service attack.",
+        "Even unskilled attackers can launch basic DoS attacks easily.",
+        "Denial of service attacks cause downtime and financial loss for businesses."
+      ]
+    },
+    {
+      "keyword": "distributed denial of service",
+      "responses": [
+        "A distributed denial of service attack uses many infected machines at once.",
+        "DDoS attacks flood a target from thousands of sources at the same time.",
+        "The machines used in a DDoS attack are usually part of a botnet.",
+        "DDoS attacks are much harder to defend against than simple DoS attacks.",
+        "A DDoS flood can knock a website or server offline completely."
+      ]
+    },
+    {
+      "keyword": "dlp",
+      "responses": [
+        "a data loss prevention system is designed to stop sensitive data from being stolen from or escaping a network.",
+        "DLPs monitors and protects data in three different states: data in use (data being accessed by a user), data in motion (data travelling through the network)data at rest (data stored in a computer network or device)",
+        "Data loss prevention protects sensitive information from leaving the network.",
+        "DLP tools can block sensitive data from being sent by email or USB."
+      ]
+    },
+    {
+      "keyword": "DoS",
+      "responses": [
+        "Denial-of-Service (DoS) attacks are a type of network attack that is relatively simple to carry out, even by an unskilled attacker.",
+        " A DoS attack results in some sort of interruption of network service to users, devices or applications.",
+        "DoS attacks are considered a major risk because they can easily interrupt communication and cause significant loss of time and money.",
+        "DDoS attacks are extremely difficult to defend against because the attacks originate from hundreds, even thousands, of zombie hosts, and the attacks appear as legitimate traffic"
+      ]
+    },
+    {
+      "keyword": "firewall",
+      "responses": [
+        "A firewall monitors incoming and outgoing traffic and blocks connections that don't match your security rules. Keep your OS firewall enabled at all times.",
+        "Home routers include a basic NAT firewall that hides your devices from direct internet exposure. Never expose devices directly to the internet without one.",
+        "Application-layer firewalls can inspect traffic content, not just port and IP. They can block malware that uses allowed ports like 80 and 443 to phone home.",
+        "Review your firewall rules periodically. Old rules for software you've uninstalled can leave unnecessary ports open."
+      ]
+    },
+    {
+      "keyword": "hardware vulnerabilities",
+      "responses": [
+        "Hardware vulnerabilities are most often the result of hardware design flaws.For example, the type of memory called RAM basically consists of lots of capacitors (a component which can hold an electrical charge) installed very close to one another.",
+        "Hardware vulnerabilities are specific to device models and are not generally exploited through random compromising attempts.",
+        "    While hardware exploits are more common in highly targeted attacks, traditional malware protection and good physical security are sufficient protection for the everyday user.",
+        "Hardware vulnerabilities are flaws in computer chips and components."
+      ]
+    },
+    {
+      "keyword": "HTTPS",
+      "responses": [
+        "HTTPS stands for hypertext transfer protocol secure.",
+        "HTTPS encrypts the data sent between your browser and a website.",
+        "Look for the padlock icon to check that a website uses HTTPS.",
+        "Never enter passwords on a website that is not HTTPS.",
+        "HTTPS protects your information from attackers on public Wi-Fi."
+      ]
+    },
+    {
+      "keyword": "hypertext transfer protocol secure",
+      "responses": [
+        "HTTPS stands for hypertext transfer protocol secure.",
+        "HTTPS encrypts the data sent between your browser and a website.",
+        "Look for the padlock icon to check that a website uses HTTPS.",
+        "Never enter passwords on a website that is not HTTPS.",
+        "HTTPS protects your information from attackers on public Wi-Fi."
+      ]
+    },
+    {
+      "keyword": "identity services engine",
+      "responses": [
+        "ISE stands for identity services engine, a network access control solution.",
+        "Cisco ISE controls which devices can connect to a network.",
+        "ISE checks whether a device is healthy before allowing it access.",
+        "Identity services engine enforces security policies for users and devices."
+      ]
+    },
+    {
+      "keyword": "ids",
+      "responses": [
+        "Intrusion detection systems (IDSs) and intrusion prevention systems (IPSs) are security measures deployed on a network to detect and prevent malicious activities.",
+        "An IDS can either be a dedicated network device or one of several tools in a server, firewall or even a host computer operating system, that scans data against signatures, looking for malicious traffic",
+        "The job of an IDS is to detect, log and report to a network administrator",
+        "The IDS will log the detection and create an alert for a network administrator.It will not take action and therefore it will not prevent attacks from happening",
+        "To prevent network delay (known as latency), an IDS is usually placed offline, separate from the regular network traffic"
+      ]
+    },
+    {
+      "keyword": "intrusion detection system",
+      "responses": [
+        "An intrusion detection system monitors network traffic for suspicious activity.",
+        "An IDS detects threats and alerts administrators when something looks wrong.",
+        "Unlike a prevention system, an IDS does not block traffic by itself.",
+        "A signature-based IDS looks for known attack patterns in network traffic."
+      ]
+    },
+    {
+      "keyword": "ips",
+      "responses": [
+        "Intrusion prevention systems (IPSs) and intrusion detection systems (IDSs) are security measures deployed on a network to detect and prevent malicious activities.",
+        "An IPS can block or deny traffic based on a positive rule or signature match",
+        "IPS stands for intrusion prevention system.",
+        "An IPS can block malicious traffic in real time."
+      ]
+    },
+    {
+      "keyword": "ISE",
+      "responses": [
+        "ISE stands for identity services engine, a network access control solution.",
+        "Cisco ISE controls which devices can connect to a network.",
+        "ISE checks whether a device is healthy before allowing it access.",
+        "Identity services engine enforces security policies for users and devices."
+      ]
+    },
+    {
+      "keyword": "LAN",
+      "responses": [
+        "A LAN, or local area network, connects computers in one location.",
+        "Your home Wi-Fi network is an example of a LAN.",
+        "A LAN lets devices share files, printers, and internet connections.",
+        "Secure your LAN with a strong password and encryption to keep outsiders out.",
+        "Only trusted devices should be allowed onto your local network."
+      ]
+    },
+    {
+      "keyword": "list of open files",
+      "responses": [
+        "lsof stands for list of open files, a useful command line tool.",
+        "lsof shows which files are open by which processes.",
+        "Security analysts use lsof to find suspicious open files.",
+        "lsof can reveal what a program is accessing on a system."
+      ]
+    },
+    {
+      "keyword": "local area network",
+      "responses": [
+        "A LAN, or local area network, connects computers in one location.",
+        "Your home Wi-Fi network is an example of a LAN.",
+        "A LAN lets devices share files, printers, and internet connections.",
+        "Secure your LAN with a strong password and encryption to keep outsiders out.",
+        "Only trusted devices should be allowed onto your local network."
+      ]
+    },
+    {
+      "keyword": "lsof",
+      "responses": [
+        "lsof stands for list of open files, a useful command line tool.",
+        "lsof shows which files are open by which processes.",
+        "Security analysts use lsof to find suspicious open files.",
+        "lsof can reveal what a program is accessing on a system."
+      ]
+    },
+    {
+      "keyword": "malware",
+      "responses": [
+        "Malware is any software designed to harm your system. Keep your OS and antivirus updated — most infections exploit known vulnerabilities that patches already fix.",
+        "Never download software from unofficial sources. Cracked software and free download sites are the most common malware delivery mechanism.",
+        "If your computer suddenly slows down, shows unexpected ads, or behaves strangely, run a full antivirus scan immediately — these are classic malware symptoms.",
+        "Trojans disguise themselves as legitimate software. Only install applications from official app stores or the developer's own verified website.",
+        "Malware is any code that can be used to steal data, bypass access controls, or cause harm to or compromise a system."
+      ]
+    },
+    {
+      "keyword": "man in the middle",
+      "responses": [
+        "MitM stands for man in the middle, where an attacker intercepts communication.",
+        "A man in the middle attacker can read or change messages between two people.",
+        "Using HTTPS makes man in the middle attacks much harder.",
+        "Public Wi-Fi is a common place for man in the middle attacks.",
+        "Encryption stops man in the middle attackers from reading your data."
+      ]
+    },
+    {
+      "keyword": "man in the mobile",
+      "responses": [
+        "MitMo stands for man in the mobile, a mobile-focused man in the middle attack.",
+        "Man in the mobile attacks usually spread through malicious phone apps.",
+        "Attackers use MitMo to steal banking details and two-factor codes.",
+        "The ZeuS malware is a well-known tool used for man in the mobile attacks.",
+        "Only install apps from official app stores to avoid MitMo malware."
+      ]
+    },
+    {
+      "keyword": "MitM",
+      "responses": [
+        "MitM stands for man in the middle, where an attacker intercepts communication.",
+        "A man in the middle attacker can read or change messages between two people.",
+        "Using HTTPS makes man in the middle attacks much harder.",
+        "Public Wi-Fi is a common place for man in the middle attacks.",
+        "Encryption stops man in the middle attackers from reading your data."
+      ]
+    },
+    {
+      "keyword": "MitMo",
+      "responses": [
+        "MitMo stands for man in the mobile, a mobile-focused man in the middle attack.",
+        "Man in the mobile attacks usually spread through malicious phone apps.",
+        "Attackers use MitMo to steal banking details and two-factor codes.",
+        "The ZeuS malware is a well-known tool used for man in the mobile attacks.",
+        "Only install apps from official app stores to avoid MitMo malware."
+      ]
+    },
+    {
+      "keyword": "NAT",
+      "responses": [
+        "NAT stands for network address translation.",
+        "NAT lets many devices share a single internet address.",
+        "A home router uses NAT to hide your devices from the internet.",
+        "NAT acts as a basic firewall by hiding internal IP addresses.",
+        "Network address translation helps keep your local network private."
+      ]
+    },
+    {
+      "keyword": "network address translation",
+      "responses": [
+        "NAT stands for network address translation.",
+        "NAT lets many devices share a single internet address.",
+        "A home router uses NAT to hide your devices from the internet.",
+        "NAT acts as a basic firewall by hiding internal IP addresses.",
+        "Network address translation helps keep your local network private."
+      ]
+    },
+    {
+      "keyword": "on path attacks",
+      "responses": [
+        "On-path attackers intercept or modify communications between two devices, such as a web browser and a web server, either to collect information from or to impersonate one of the devices.",
+        "This type of attack is also referred to as a man-in-the-middle or man-in-the-mobile attack.",
+        "A man in the middle (MitM) attack happens when a cybercriminal takes control of a device without the user's knowledge",
+        "With MitM level of access, an attacker can intercept and capture user information before it is sent to is intended destination",
+        "MitM attacks are often used to steal financial information",
+        "A man in the mobile (MitMo) attack is used to take control over a user's mobile device.",
+        "With MitMo attack, the mobile device is instructed to exfiltrate user sensitive information and send it to attackers",
+        "ZeuS is one example of a malware package with MitMo capabilities",
+        "ZeuS allows attackes to quietly capture two step verification SMS messages that are sent to users"
+      ]
+    },
+    {
+      "keyword": "operating system",
+      "responses": [
+        "The operating system is the core software that runs a computer.",
+        "Windows, macOS, Linux, and Android are common operating systems.",
+        "Keeping your operating system updated fixes known security holes.",
+        "Use the built-in firewall and antivirus tools that come with your operating system.",
+        "Unsupported operating systems stop receiving security updates and become unsafe."
+      ]
+    },
+    {
+      "keyword": "OS",
+      "responses": [
+        "The operating system is the core software that runs a computer.",
+        "Windows, macOS, Linux, and Android are common operating systems.",
+        "Keeping your operating system updated fixes known security holes.",
+        "Use the built-in firewall and antivirus tools that come with your operating system.",
+        "Unsupported operating systems stop receiving security updates and become unsafe."
+      ]
+    },
+    {
+      "keyword": "password",
+      "responses": [
+        "Use at least 12 characters mixing uppercase, lowercase, numbers, and symbols. Longer is stronger — a 20-character passphrase beats a complex 8-character password.",
+        "Never reuse passwords across sites. If one service is breached, attackers try those credentials everywhere — this is called credential stuffing.",
+        "A password manager like Bitwarden or KeePass generates and stores unique passwords for every account so you only need to remember one master password.",
+        "Avoid using personal info in passwords — birthdays, pet names, and addresses are the first things attackers try in targeted attacks."
+      ]
+    },
+    {
+      "keyword": "password attacks",
+      "responses": [
+        "Password attacks are attempts to guess, steal, or crack your login credentials.",
+        "Brute force attacks try every possible password combination until one works.",
+        "Dictionary attacks use lists of common words to guess your password.",
+        "Credential stuffing reuses leaked passwords from one site to break into others.",
+        "A unique, long password for each account defeats most password attacks."
+      ]
+    },
+    {
+      "keyword": "penetration testing",
+      "responses": [
+        "Pen testing is the act of assessing a computer system, network or organization for security vulnerabilities",
+        "A pen test seeks to breach systems, people, processes and code to uncover vulnerabilities which could be exploited",
+        "Pen testers use gathered information to improve the system's defenses to ensure that it is better able to withstand cyber attacks in the future",
+        "Penetration testing is also called pen testing."
+      ]
+    },
+    {
+      "keyword": "phishing",
+      "responses": [
+        "Phishing emails impersonate trusted senders to steal credentials. Always verify the sender's actual email address, not just the display name.",
+        "Watch for urgency in emails — 'Your account will be closed in 24 hours' is a classic phishing pressure tactic. Legitimate companies don't rush you.",
+        "Never click 'verify your account' links in unsolicited emails. Go directly to the website by typing the URL yourself instead.",
+        "Spear phishing targets you specifically using personal details from social media. Be suspicious of emails that feel unusually personal from unknown senders."
+      ]
+    },
+    {
+      "keyword": "PID",
+      "responses": [
+        "PID stands for process id, a number assigned to each running process.",
+        "Each PID is unique while its process is running.",
+        "You can end a stuck process using its PID.",
+        "Checking PIDs helps you find suspicious running programs."
+      ]
+    },
+    {
+      "keyword": "process id",
+      "responses": [
+        "PID stands for process id, a number assigned to each running process.",
+        "Each PID is unique while its process is running.",
+        "You can end a stuck process using its PID.",
+        "Checking PIDs helps you find suspicious running programs."
+      ]
+    },
+    {
+      "keyword": "ransomware",
+      "responses": [
+        "Ransomware encrypts your files and demands payment for the decryption key. Paying does not guarantee recovery and funds future attacks.",
+        "The best defence against ransomware is offline backups. If your files are backed up somewhere the ransomware can't reach, you can restore without paying.",
+        "Ransomware most commonly enters through phishing emails with malicious attachments or through unpatched remote desktop (RDP) vulnerabilities.",
+        "Never open email attachments you weren't expecting, especially .zip, .exe, or Office files that ask you to enable macros."
+      ]
+    },
+    {
+      "keyword": "rootkit",
+      "responses": [
+        "This malware is designed to modify the OS to create a backdoor, which attackers can then use to access your computer remotely",
+        "Rootkits take advantage of software vulnerabilities to gain access to resources that normally shouldn't be accessible and modify system files",
+        "Rootkits can also modify system forensics and monitoring tools, making them very hard to detect",
+        "In most cases, a computer infected by a rootkit has to be wiped and any required software reinstalled."
+      ]
+    },
+    {
+      "keyword": "scareware",
+      "responses": [
+        "This is a type of malware that uses 'scare' tactics to trick you into taking a specific action.",
+        "Scareware mainly consists of OS style windows that pop up to warn you that your system is at risk and needs to run a specific program for it to return to normal operation.",
+        "Scareware uses fake warnings to frighten users into installing software.",
+        "A common scareware warning claims your computer is infected and needs cleaning."
+      ]
+    },
+    {
+      "keyword": "search engine optimisation",
+      "responses": [
+        "SEO stands for search engine optimisation, which improves how visible a website is.",
+        "Attackers abuse SEO to push malicious websites high in search results.",
+        "SEO poisoning tricks users into visiting fake download or banking pages.",
+        "Always check the URL before clicking a search result.",
+        "Appearing near the top of search results does not mean a site is safe."
+      ]
+    },
+    {
+      "keyword": "security information and event management",
+      "responses": [
+        "A SIEM collects and analyses security logs from across a network.",
+        "Security information and event management detects threats from log patterns.",
+        "SIEM tools combine alerts from firewalls, servers, and other devices.",
+        "A SIEM gives security teams one central view of network activity.",
+        "SIEM alerts help organisations respond to cyber attacks faster."
+      ]
+    },
+    {
+      "keyword": "security vulnerabilities",
+      "responses": [
+        "Security vulnerabilities are any kind of software or hardware defect.",
+        "A program written to take advantage of a known vulnerability is referred to as an exploit.",
+        "A cybercriminal can use an exploit against a vulnerability to carry out an attack, the goal of which is to gain access to a system, the data it hosts or a specific resource.",
+        "Software vulnerabilities are usually introduced by errors in the operating system or application code."
+      ]
+    },
+    {
+      "keyword": "SEO",
+      "responses": [
+        "SEO stands for search engine optimisation, which improves how visible a website is.",
+        "Attackers abuse SEO to push malicious websites high in search results.",
+        "SEO poisoning tricks users into visiting fake download or banking pages.",
+        "Always check the URL before clicking a search result.",
+        "Appearing near the top of search results does not mean a site is safe."
+      ]
+    },
+    {
+      "keyword": "seo poisoning",
+      "responses": [
+        "Search engine optimisation (SEO) is about improving an organisation's website so that it gains greater visibility in search engine results",
+        "Attackers take advantage of popular search terms and use SEO to push malicious sites higher up the ranks of search results.",
+        "The most common goal of SEO poisoning is to increase traffic to malicious sites that may host malware or attempt social engineering",
+        "SEO poisoning hides malicious links among normal search results."
+      ]
+    },
+    {
+      "keyword": "siem",
+      "responses": [
+        "a security information and event management system collects and analyses security alerts, logs and other real-time and historical data from security devices on the network to facilitate early detection of cyber attacks",
+        "SIEM is short for security information and event management.",
+        "SIEM tools help security teams spot attacks early.",
+        "SIEM platforms collect security logs from across the entire network."
+      ]
+    },
+    {
+      "keyword": "social engineering",
+      "responses": [
+        "Social engineering manipulates people into performing actions or divulging confidential information rather than systems.",
+        "Attackers exploit trust, authority, and urgency to bypass technical defences.",
+        "Be suspicious of any unsolicited request for credentials, access, or money — even if the caller claims to be from IT support or your bank.",
+        "Pretexting involves creating a fabricated scenario to extract information. Verify identities through official channels before sharing anything sensitive.",
+        "Tailgating is physically following someone into a restricted area. Never hold doors open for people you don't recognise, even if they look official.",
+        "Social engineers often rely on people's willingness to be helpful, but they also prey on their weaknesses."
+      ]
+    },
+    {
+      "keyword": "spyware",
+      "responses": [
+        "Spyware is designed to track and spy on you, it often monitors your online activity",
+        "Spyware can log every key you press on your keyboard, as well as capture almost any of your data",
+        "Data often stolen by spyware include, sensitive personal information, online banking details, even your identity",
+        "Spyware is operated by modifying the security settings on your devices, it often bundles itself with legitimate software or Trojan horses"
+      ]
+    },
+    {
+      "keyword": "TLS",
+      "responses": [
+        "TLS stands for transport layer security.",
+        "TLS encrypts data as it travels across the internet.",
+        "TLS is the technology that keeps HTTPS connections secure.",
+        "Old TLS versions are insecure and should be replaced.",
+        "TLS protects emails, websites, and apps from being read in transit."
+      ]
+    },
+    {
+      "keyword": "transport layer security",
+      "responses": [
+        "TLS stands for transport layer security.",
+        "TLS encrypts data as it travels across the internet.",
+        "TLS is the technology that keeps HTTPS connections secure.",
+        "Old TLS versions are insecure and should be replaced.",
+        "TLS protects emails, websites, and apps from being read in transit."
+      ]
+    },
+    {
+      "keyword": "trojan horse",
+      "responses": [
+        "Trojan horse malware carries out malicious operations by masking its true intent.",
+        "A Trojan horse might appear legitimate but is, in fact, very dangerous.",
+        "Trojans exploit your user privileges and are most often found in image files, audio files or games.",
+        "Unlike viruses, Trojans do not self-replicate but act as a decoy to sneak malicious software past unsuspecting users."
+      ]
+    },
+    {
+      "keyword": "two factor",
+      "responses": [
+        "Two-factor authentication requires something you know (password) plus something you have (phone or key). Both must be present to log in.",
+        "Setting up 2FA takes under two minutes on most platforms. Go to your account security settings and look for 'Two-Step Verification'.",
+        "Store your 2FA backup codes somewhere safe and offline — if you lose your phone without them, you can be locked out permanently.",
+        "Two-factor authentication is often shortened to 2FA."
+      ]
+    },
+    {
+      "keyword": "update",
+      "responses": [
+        "Software updates patch known security vulnerabilities. Attackers actively scan for unpatched systems within hours of a CVE being published.",
+        "Enable automatic updates for your OS, browser, and apps. The WannaCry ransomware attack in 2017 spread almost entirely through unpatched Windows systems.",
+        "Don't ignore update prompts. The longer you delay, the longer your system is exposed to vulnerabilities that are already public knowledge.",
+        "Check for firmware updates on your router too — routers are rarely updated yet run constantly and have direct access to all your network traffic."
+      ]
+    },
+    {
+      "keyword": "virus",
+      "responses": [
+        "A virus is a type of computer program that, when executed, replicates and attaches itself to other executable files, such as a document, by inserting its own code",
+        "Most viruses require end-user interaction to initiate activation and can be written to act on a specific date or time.",
+        "Viruses can be relatively harmless, such as those that display a funny image. Or they can be destructive, such as those that modify or delete data.",
+        "Viruses can also be programmed to mutate in order to avoid detection.",
+        "Most viruses are spread by USB drives, optical disks, network shares or email."
+      ]
+    },
+    {
+      "keyword": "vpn",
+      "responses": [
+        "A VPN encrypts all traffic between your device and the internet, preventing your ISP and network observers from seeing what you're doing.",
+        "On public Wi-Fi, a VPN stops attackers on the same network from intercepting your data through man-in-the-middle attacks.",
+        "Choose a VPN with a strict no-logs policy that has been independently audited. Free VPNs often monetise your browsing data — the opposite of privacy.",
+        "A VPN hides your traffic but does not make you anonymous. Websites can still identify you through cookies and browser fingerprinting."
+      ]
+    },
+    {
+      "keyword": "wifi",
+      "responses": [
+        "Public Wi-Fi is unencrypted by default. Anyone on the same network can potentially see your unencrypted traffic with basic tools.",
+        "Avoid accessing banking or email on public Wi-Fi. Use your mobile data connection instead — it's encrypted by the carrier.",
+        "Even password-protected café or hotel Wi-Fi is shared with strangers. A VPN encrypts your traffic so other users on the network can't read it.",
+        "Evil twin attacks create a fake hotspot with a convincing name like 'Airport_Free_WiFi'. Always confirm the official network name with staff before connecting."
+      ]
+    },
+    {
+      "keyword": "wifi password cracking",
+      "responses": [
+        "Wi-Fi password cracking is an attempt to break into a wireless network by recovering its password.",
+        "Attackers usually target Wi-Fi networks that use weak or default passwords.",
+        "Tools like Aircrack-ng and Hashcat are commonly used to crack Wi-Fi passwords.",
+        "A long, random Wi-Fi password makes cracking attempts far harder.",
+        "WPA3 encryption is much harder to crack than the older WPA2 and WEP standards.",
+        "Always change the default password on your router as soon as it is installed."
+      ]
+    },
+    {
+      "keyword": "worms",
+      "responses": [
+        "This is a type of malware that replicates itself in order to spread from one computer to another. ",
+        "Unlike a virus, which requires a host program to run, worms can run by themselves.",
+        "Other than the initial infection of the host, worms do not require user participation and can spread very quickly over the network.",
+        "Worms share similar patterns:They exploit system vulnerabilities, they have a way to propagate themselvesand they all contain malicious code (payload) to cause damage to computer systems or networks.",
+        "Worms are responsible for some of the most devastating attacks on the Internet."
+      ]
+    }
+  ]
+}
