@@ -21,7 +21,7 @@ public class HelpCentre {
     public static void display() {
         String spokenSummary = "These are the topics currently available:";
         ConsoleUI.printBotResponse(spokenSummary);
-        VoiceGreeter.speakAsync(spokenSummary);
+        VoiceGreeter.speakClosing(spokenSummary);
         printTable();
         String ifNotIn = "If the topic of your interest is not in the list. Search and I'll find the information for you.";
         ConsoleUI.printBotResponse(ifNotIn);
