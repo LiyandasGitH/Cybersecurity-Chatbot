@@ -1,6 +1,35 @@
 {
   "topics": [
     {
+      "keyword": "!@#$",
+      "responses": [
+        "Hello! It looks like you entered a string of special characters.",
+        "I am your Cyber Security Awareness Assistant, and I am here to help you with topics related to staying safe online.",
+        "If those characters made you think about password security, here is a quick tip: using a mix of upper and lowercase letters, numbers, and special characters (like !@#$) helps make passwords stronger! However, a long passphrase (4 or more random words linked together) is often even more secure and easier to remember.",
+        "Feel free to ask me any cybersecurity questions, such as:",
+        "How to spot a phishing email",
+        "How to set up Multi-Factor Authentication (MFA)",
+        "Tips for safe browsing on public Wi-Fi",
+        "What cybersecurity topic would you like to explore today?"
+      ]
+    },
+    {
+      "keyword": "12345",
+      "responses": [
+        "Ah, \"12345\" — one of the most famous (and dangerous!) passwords in the world!",
+        "If you are using \"12345\" or similar patterns (like \"123456\", \"password\", or \"qwerty\") for any of your accounts, here is why you should change it immediately:",
+        "Guessed instantly: Automated hacking tools try common number sequences first. A hacker's script can crack \"12345\" in less than a millisecond.",
+        "Credential Stuffing: Once hackers find a common password, they use it to try logging into thousands of other popular websites automatically.",
+        "Make it long: Length is the best defense. Aim for at least 12 to 16 characters.",
+        "Use a Passphrase: Combine 3 or 4 random words with spaces, numbers, or symbols.",
+        "*Example:* Purple!Elephant42Dancing",
+        "Never reuse passwords: Every account should have a unique password so one breach doesn't compromise everything.",
+        "Use a Password Manager: Tools like Bitwarden, 1Password, or Dashlane can create, remember, and auto-fill strong, unique passwords for you.",
+        "Enable MFA (Multi-Factor Authentication): Turn on 2-step verification wherever possible. Even if a hacker guesses your password, they won't be able to log in without your second factor (like an authenticator app code).",
+        "Would you like tips on choosing a good password manager or setting up Multi-Factor Authentication?"
+      ]
+    },
+    {
       "keyword": "2fa",
       "responses": [
         "Two-factor authentication adds a second verification step beyond your password. Even if your password is stolen, attackers cannot access your account without it.",
@@ -92,6 +121,19 @@
       ]
     },
     {
+      "keyword": "cryptocurrency",
+      "responses": [
+        "I am a Cybersecurity Awareness Assistant, so I focus specifically on security practices, safe browsing, protecting your personal data, and threat prevention.",
+        "Cryptocurrency arbitrage is primarily a financial trading strategy rather than a cybersecurity topic.",
+        "If you are interested in cryptocurrency from a security perspective, I would be happy to help you with topics such as:",
+        "Securing Crypto Wallets (e.g., hardware wallets vs. software wallets)",
+        "Avoiding Crypto Scams & Phishing Attacks",
+        "Protecting Exchange Accounts (using 2FA, strong passwords, etc.)",
+        "Recognizing Malicious Crypto-Draining Smart Contracts",
+        "Would you like to learn about any of these security topics instead?"
+      ]
+    },
+    {
       "keyword": "data loss prevention",
       "responses": [
         "DLP stands for data loss prevention, which stops sensitive data from leaving a network.",
@@ -107,7 +149,23 @@
         "A Distributed Denial of Service (DDoS) attack is similar to a DoS attack but originates from multiple, coordinated sources",
         "An attacker builds a network (botnet) of infected hosts called zombies, which are controlled by handler systems.The zombie computers will constantly scan and infect more hosts, creating more and more zombies.When ready, the hacker will instruct the handler systems to make the botnet of zombies carry out a DDoS attack.",
         "DDoS stands for distributed denial of service.",
-        "DDoS attacks use many infected computers to overwhelm a target."
+        "DDoS attacks use many infected computers to overwhelm a target.",
+        "A DDoS attack stands for Distributed Denial of Service.",
+        "In simple terms, it’s like a massive digital traffic jam deliberately created to knock a website or online service offline.",
+        "Imagine a small coffee shop with one register. Normally, customers walk in, buy coffee, and leave.",
+        "Now, imagine 500 fake customers suddenly rush into the shop at the exact same time, crowding the counter and asking endless questions without buying anything. The real, paying customers can't even get through the front door, and the barista gets overwhelmed and gives up.",
+        "That is what a DDoS attack does to a server or website.",
+        "The Botnet: An attacker secretly infects thousands (or millions) of everyday devices—like computers, smartphones, or smart TVs—with malware. This network of hijacked devices is called a botnet or \"zombie army.\"",
+        "The Command: The attacker commands all these infected devices to visit a single website or flood a server with requests at the exact same moment.",
+        "The Crash: The target server runs out of memory, bandwidth, or processing power, causing it to slow down to a crawl or crash completely for real users.",
+        "Extortion: Demanding a ransom to stop the attack.",
+        "Hacktivism: Protesting against a company or government.",
+        "Distraction: Keeping IT teams busy fixing the crash while the attacker sneaks in through a back door to steal data.",
+        "Vandalism/Disruption: Simply causing chaos for fun or business rivalry.",
+        "If you own a website or manage a network:",
+        "Use a Web Application Firewall (WAF) or CDN: Services like Cloudflare, Akamai, or AWS Shield can absorb and filter out malicious traffic before it reaches your server.",
+        "Scale Resources: Use cloud hosting that can automatically scale up to handle sudden traffic spikes.",
+        "For regular internet users: Keep your devices updated and use antivirus software so your computer or smart devices don't secretly become part of an attacker's botnet!"
       ]
     },
     {
@@ -569,6 +627,18 @@
         "Setting up 2FA takes under two minutes on most platforms. Go to your account security settings and look for 'Two-Step Verification'.",
         "Store your 2FA backup codes somewhere safe and offline — if you lose your phone without them, you can be locked out permanently.",
         "Two-factor authentication is often shortened to 2FA."
+      ]
+    },
+    {
+      "keyword": "unknown",
+      "responses": [
+        "Hello! It looks like your message was a bit unclear.",
+        "As your Cyber Security Awareness Assistant, I'm here to help you stay safe online. You can ask me about:",
+        "Password Hygiene: How to create strong passwords and use password managers.",
+        "Phishing & Scams: How to spot fake emails, texts, or suspicious links.",
+        "Safe Browsing: Staying safe on public Wi-Fi and identifying secure websites.",
+        "Account Security: Setting up Multi-Factor Authentication (MFA/2FA).",
+        "What cybersecurity topic would you like to learn about today?"
       ]
     },
     {

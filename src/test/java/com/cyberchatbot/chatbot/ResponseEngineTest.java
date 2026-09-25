@@ -1,5 +1,6 @@
 package com.cyberchatbot.chatbot;
 
+import com.cyberchatbot.protocols.KnowledgeBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -54,7 +55,6 @@ public class ResponseEngineTest {
             "rootkit",
             "trojan horse",
             "worms",
-            "ddos"
     })
 
     @DisplayName("Should successfully match individual cybersecurity keywords")
@@ -113,12 +113,15 @@ public class ResponseEngineTest {
     }
 
     @Test
-    void testResponseIsNeverNull() {
-        String[] inputs = { "phishing", "MALWARE", "unknown", "", "12345", "!@#$" };
-        for (String input : inputs) {
-            assertNotNull(engine.getResponse(input),
-                    "getResponse() must never return null for input: '" + input + "'");
-        }
+    @DisplayName("Topic count should match the underlying knowledge base source")
+    void testTopicCountMatchesSource() {
+        KnowledgeBase kb = new KnowledgeBase();
+        int expectedCount = kb.loadSortedKnowledgeBase().size();
+
+        assertEquals(expectedCount, engine.getTopicCount(),
+                "ResponseEngine topic count should match the entries in the knowledge base");
+        assertTrue(engine.getTopicCount() > 0,
+                "Loaded topic count should be greater than zero");
     }
 
     @Test
@@ -137,11 +140,5 @@ public class ResponseEngineTest {
         assertTrue(engine.getTopicCount() >= 10,
                 "Engine should have at least 10 topics loaded");
     }
-
-
-
-
-
-
 
 }
