@@ -25,6 +25,7 @@ public class HelpCentre {
         printTable();
         String ifNotIn = "If the topic of your interest is not in the list. Search and I'll find the information for you.";
         ConsoleUI.printBotResponse(ifNotIn);
+        VoiceGreeter.speakAsync(ifNotIn);
     }
 
     private static void printTable() {
