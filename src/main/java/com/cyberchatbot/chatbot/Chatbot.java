@@ -157,10 +157,6 @@ public class Chatbot {
                 continue;
             }
 
-//            if(userInput.digitInput()) {
-//                continue;
-//            }
-
              if (userInput.matches("\\d+")) {
                  String digitError = "I only work with text based questions!\n";
                  ConsoleUI.printError(digitError);
@@ -180,15 +176,12 @@ public class Chatbot {
                 break;
             }
 
-
             // chatbot orders information from the response engine given input
             TheBox takeBox = responseEngine.getResponse(userInput);
             String botAnswer = takeBox.answer();
             ConsoleUI.printBotResponse(botAnswer);
-
             // calling the ai delivery man to give answer if found answer is meaningless
             checkWithAiIfIsMeaningless(takeBox, userInput);
-
         }
     }
 
@@ -226,6 +219,4 @@ public class Chatbot {
             ConsoleUI.printBotResponse(answer);
         }
     }
-
-
 }
