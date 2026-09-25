@@ -51,7 +51,6 @@ threats through conversational interaction.
 Cyber-Security-Awareness-Chatbot/
 ├── .env
 ├── .gitignore
-├── .script.sh
 ├── LICENSE
 ├── pom.xml
 ├── README.md
@@ -70,7 +69,7 @@ Cyber-Security-Awareness-Chatbot/
 │   │   │   │   └── KnowledgeBase.java
 │   │   │   └── ui/
 │   │   │       ├── ConsoleUI.java
-                ├── HelpCentre.java
+│   │   │       ├── HelpCentre.java
 │   │   │       └── VoiceGreeter.java
 │   │   └── resources/
 │   └── test/java/com/cyberchatbot/
@@ -109,7 +108,7 @@ Cyber-Security-Awareness-Chatbot/
 
 2. **Configure your API Key:**
     - Create a ```.env``` file 
-    - Or **export** your Gemini API key:
+    - Or **export** your Gemini API key in the terminal:
     ```
    export GEMINI_API_KEY="your-api-key-here"
    ```

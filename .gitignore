@@ -41,5 +41,5 @@ build/
 
 ### ENV KEYS ###
 .env
-stcript.sh.stcript.sh
-script.sh
+.env.production
+.env.local
