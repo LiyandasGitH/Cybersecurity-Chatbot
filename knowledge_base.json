@@ -216,6 +216,18 @@
       ]
     },
     {
+      "keyword": "forez",
+      "responses": [
+        "It looks like you might be referring to Digital Forensics (sometimes abbreviated as forensics or DFIR).",
+        "Digital Forensics is the cybersecurity process of uncovering, preserving, and analyzing digital evidence after a cyberattack, security breach, or crime. Think of it like a digital crime scene investigation!",
+        "Key goals of digital forensics include:",
+        "Investigating breaches: Finding out how an attacker got into a network.",
+        "Determining damage: Seeing what files were accessed, stolen, or changed.",
+        "Preserving evidence: Gathering digital data (logs, memory, hard drive images) so it can be used in legal proceedings.",
+        "If you meant something else, please let me know! You can ask me about password safety, spotting phishing emails, Wi-Fi security, or protecting your personal devices.*"
+      ]
+    },
+    {
       "keyword": "hardware vulnerabilities",
       "responses": [
         "Hardware vulnerabilities are most often the result of hardware design flaws.For example, the type of memory called RAM basically consists of lots of capacitors (a component which can hold an electrical charge) installed very close to one another.",
@@ -687,6 +699,25 @@
         "A long, random Wi-Fi password makes cracking attempts far harder.",
         "WPA3 encryption is much harder to crack than the older WPA2 and WEP standards.",
         "Always change the default password on your router as soon as it is installed."
+      ]
+    },
+    {
+      "keyword": "wireshark",
+      "responses": [
+        "Wireshark is the world’s most popular free and open-source network protocol analyzer (often called a \"packet sniffer\").",
+        "It allows you to capture and inspect the traffic flowing across a computer network in real-time, showing you what is happening at a microscopic level.",
+        "Think of Wireshark like an X-ray machine for network traffic. When data travels across the internet or a local network, it is broken down into small pieces called packets. Wireshark captures these packets and displays their details so you can see:",
+        "Source and Destination: Who is sending data to whom (IP addresses).",
+        "Protocols: What language the computers are using (e.g., HTTP, HTTPS, DNS, TCP).",
+        "Data Content: The actual information being sent (if it isn't encrypted).",
+        "Detecting Threats: Security analysts use Wireshark to spot unusual traffic, such as malware communicating with an attacker's server or unauthorized devices on a network.",
+        "Network Troubleshooting: Network engineers use it to diagnose slow connections, dropped packets, and configuration errors.",
+        "Understanding Encryption: Wireshark highlights the difference between secure and insecure traffic. For example:",
+        "Unencrypted (HTTP): Wireshark can show passwords, text, and data in plain text.",
+        "Encrypted (HTTPS): Wireshark only shows scrambled, unreadable data.",
+        "Always Use Encryption: Because tools like Wireshark can easily read plain-text traffic, always look for HTTPS (the padlock icon) when browsing the web, and use a VPN when on untrusted or public Wi-Fi networks.",
+        "Ethics & Legality: Only capture network traffic on networks you own or have explicit written permission to monitor. Capturing traffic on public or unauthorized networks can violate privacy laws.",
+        "Would you like to learn how to practice using Wireshark safely using sample capture files?*"
       ]
     },
     {
