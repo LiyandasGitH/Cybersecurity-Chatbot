@@ -21,19 +21,39 @@ public class AskAi {
             Answer ONLY cybersecurity-related questions.
             If the question is not related to cybersecurity, politely decline and suggest a cybersecurity topic instead.
             """;
+    private static final String API_KEY;
+
     public AskAi() {
     }
 
-    public static String askAi(String question) {
+    static {
+        String key = null;
+        try {
+            Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+            key = dotenv.get("API_KEY");
+        } catch (Exception ignored) {}
 
-        Dotenv dotenv = Dotenv.load();
-        String apiKey = dotenv.get("API_KEY");
-        if (apiKey == null || apiKey.isBlank()) {
-            return "Error: API_KEY environment variable is not set.";
+        if (key == null || key.isBlank()) {
+            key = System.getenv("API_KEY");
+        }
+        API_KEY = key;
+    }
+
+    public static boolean isConfigured() {
+        return API_KEY != null && !API_KEY.isBlank();
+    }
+
+    /**
+     * Sends the question to Gemini.
+     * Returns null on error so fallback logic handles it gracefully.
+     */
+    public static String askAi(String question) {
+        if (!isConfigured()) {
+            return null;
         }
 
         try (Client client = Client.builder()
-                .apiKey(apiKey)
+                .apiKey(API_KEY)
                 .build()) {
 
             GenerateContentConfig config = GenerateContentConfig.builder()
@@ -46,10 +66,11 @@ public class AskAi {
                     question,
                     config
             );
-            return response.text();
+            String text = response.text();
+            return (text != null && !text.isBlank() ? text.trim() : null);
 
         } catch (Exception e) {
-           return "Error communicating with Chatbot: " + e.getMessage();
+           return null;
         }
     }
 }
