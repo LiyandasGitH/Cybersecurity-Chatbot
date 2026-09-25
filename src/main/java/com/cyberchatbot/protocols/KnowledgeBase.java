@@ -8,10 +8,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class KnowledgeBase {
 
@@ -23,14 +20,17 @@ public class KnowledgeBase {
         ensureWritableFile();
     }
 
+    /**
+     * Loads the JSON into a sorted TreeMap (alphabetical by keyword).
+     */
     public Map<String, List<String>> loadSortedKnowledgeBase() {
         Map<String, List<String>> responses = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         try {
             if (!Files.exists(kbPath)) return responses;
 
             String json = Files.readString(kbPath, StandardCharsets.UTF_8);
-            String[] blocks = json.split("\\{\\s*\"keyword\"");
 
+            String[] blocks = json.split("\\{\\s*\"keyword\"");
             for (int i = 1; i < blocks.length; i++) {
                 String block = blocks[i];
 
@@ -55,8 +55,50 @@ public class KnowledgeBase {
         return responses;
     }
 
-    public synchronized void appendAndSave(Map<String, List<String>> responses, String keyword, String answer) {
+    /**
+     * Appends a new response to a keyword, keeping keys sorted, and persists to disk.
+     */
+    public synchronized void appendToKB(Map<String, List<String>> responses, String keyword, String answer) {
+        responses.computeIfAbsent(keyword, k -> new ArrayList<>()).add(answer);
 
+        try {
+            String json = serialise(responses);
+            Files.writeString(kbPath, json, StandardCharsets.UTF_8,
+                    StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+        } catch (IOException e) {
+            ConsoleUI.printError("Failed to persist knowledge base: " + e.getMessage());
+        }
+    }
+
+    private String serialise(Map<String, List<String>> responses) {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\n  \"topics\": [\n");
+
+        Iterator<Map.Entry<String, List<String>>> it = responses.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<String, List<String>> entry = it.next();
+            sb.append("    {\n");
+            sb.append("      \"keyword\": \"")
+                    .append(escapeJson(entry.getKey()))
+                    .append("\",\n");
+            sb.append("      \"responses\": [\n");
+
+            List<String> items = entry.getValue();
+            for (int i = 0; i < items.size(); i++) {
+                sb.append("        \"")
+                        .append(escapeJson(items.get(i)))
+                        .append("\"");
+                if (i < items.size() - 1) sb.append(",");
+                sb.append("\n");
+            }
+            sb.append("      ]\n");
+            sb.append("    }");
+            if (it.hasNext()) sb.append(",");
+            sb.append("\n");
+        }
+        sb.append("  ]\n}");
+        return sb.toString();
     }
 
     private void ensureWritableFile() {
@@ -96,5 +138,13 @@ public class KnowledgeBase {
             pos = end + 1;
         }
         return result;
+    }
+
+    private String escapeJson(String s) {
+        return s.replace("\\", "\\\\")
+                .replace("\"", "\\\"")
+                .replace("\n", "\\n")
+                .replace("\r", "")
+                .replace("\t", "\\t");
     }
 }
