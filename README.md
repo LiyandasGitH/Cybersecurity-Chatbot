@@ -52,8 +52,9 @@ Cyber-Security-Awareness-Chatbot/
 ├── .env
 ├── .gitignore
 ├── LICENSE
-├── pom.xml
 ├── README.md
+├── knowledge_base.json
+├── pom.xml
 ├── src/
 │   ├── main/
 │   │   ├── java/com/cyberchatbot/
@@ -65,6 +66,8 @@ Cyber-Security-Awareness-Chatbot/
 │   │   │   │   ├── ResponseEngine.java
 │   │   │   │   ├── TheBox.java
 │   │   │   │   └── User.java
+│   │   │   ├── knowledgebase/
+│   │   │   │   └── shortcuts.json
 │   │   │   ├── protocols/
 │   │   │   │   └── KnowledgeBase.java
 │   │   │   └── ui/
@@ -72,12 +75,16 @@ Cyber-Security-Awareness-Chatbot/
 │   │   │       ├── HelpCentre.java
 │   │   │       └── VoiceGreeter.java
 │   │   └── resources/
+│   │       └── knowledge_base.json
 │   └── test/java/com/cyberchatbot/
 │       ├── chatbot/
 │       │   ├── ChatbotTest.java
 │       │   └── ResponseEngineTest.java
+│       ├── protocols/
+│       │   └── KnowledgeBaseTest.java
 │       └── ui/
 │           ├── ConsoleUITest.java
+│           ├── HelpCentreTest.java
 │           └── VoiceGreeterTest.java
 └── target/
 ```
