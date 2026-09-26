@@ -42,7 +42,7 @@ threats through conversational interaction.
 
 ## Demo 
 
-**[![Watch the Demo](https://img.shields.io/badge/YouTube-Watch%20Demo-red?style=for-the-badge&logo=youtube)](YOUR_YOUTUBE_LINK_HERE)**
+**[![Watch the Demo](https://img.shields.io/badge/YouTube-Watch%20Demo-red?style=for-the-badge&logo=youtube)](https://youtu.be/wAvMroX00Js)**
 
 ## Project Structure 
 
