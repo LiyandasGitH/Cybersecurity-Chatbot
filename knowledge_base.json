@@ -84,6 +84,23 @@
       ]
     },
     {
+      "keyword": "bfla",
+      "responses": [
+        "BFLA stands for Broken Function Level Authorization. It is one of the most common and dangerous vulnerabilities found in web applications and APIs (featured in the OWASP API Security Top 10).",
+        "BFLA occurs when an application fails to properly check a user's permissions before letting them perform a specific action, such as accessing administrative functions or deleting data.",
+        "Simple Analogy: Imagine entering an office building with a basic visitor pass. The front desk checked your ID at the entrance (Authentication), but no one stopped you when you walked into the CEO's office and started using their computer (Lack of Authorization).",
+        "Suppose a regular user wants to view their profile. The app makes an API request:",
+        "GET /api/v1/users/profile",
+        "An attacker might guess that an admin endpoint exists and manually change the request to:",
+        "DELETE /api/v1/admin/users/1234",
+        "If the system processes this request simply because the attacker is logged in, without checking if they are actually an admin, that is a BFLA vulnerability.",
+        "Enforce Authorization on the Server: Never rely on the frontend (browser or app) to hide buttons or controls. Always check user roles on the backend server for *every* request.",
+        "Deny Access by Default: Start with zero permissions for all users and explicitly grant access only to authorized roles (Principle of Least Privilege).",
+        "Use Role-Based Access Control (RBAC): Group permissions by roles (e.g., *User*, *Manager*, *Admin*) and centralize authorization checks in your code.",
+        "Test Sensitive Endpoints: Regularly audit and test your API endpoints to ensure non-admin users cannot trigger admin-level operations."
+      ]
+    },
+    {
       "keyword": "bola",
       "responses": [
         "In cybersecurity, BOLA stands for Broken Object Level Authorization. It is currently the #1 threat to Web APIs on the OWASP API Security Top 10 list.",
